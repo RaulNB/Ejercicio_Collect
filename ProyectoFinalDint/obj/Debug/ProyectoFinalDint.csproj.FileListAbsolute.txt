@@ -1,0 +1,17 @@
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\ProyectoFinalDint.exe.config
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\ProyectoFinalDint.exe
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\ProyectoFinalDint.pdb
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.csprojResolveAssemblyReference.cache
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.Properties.Resources.resources
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.csproj.GenerateResource.Cache
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.exe
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.pdb
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\ButtonElement.dll
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\MySql.Data.dll
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\ButtonElement.pdb
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\MySql.Data.xml
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.FormCollect.resources
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.FormNuevaColeccion.resources
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.FormNuevoElemento.resources
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.FormVerElemento.resources
