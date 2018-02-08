@@ -37,7 +37,7 @@ namespace ProyectoFinalDint
         /// </summary>
         private void buttonElementVerColeccion_Click(Object sender, EventArgs e)
         {
-            ButtonElement.ButtonElement buttonClicked = sender as ButtonElement.ButtonElement;
+            ControlElemento.Elemento buttonClicked = sender as ControlElemento.Elemento;
             ColeccionActiva = buttonClicked.Name;
 
             limpiarElementos();
@@ -50,7 +50,7 @@ namespace ProyectoFinalDint
 
             while (reader.Read())
             {
-                ButtonElement.ButtonElement button = new ButtonElement.ButtonElement();
+                ControlElemento.Elemento button = new ControlElemento.Elemento();
                 button.Name = reader["nombre"].ToString();
                 button.Text = reader["nombre"].ToString();
                 button.Click += new EventHandler(buttonElementVerElemento_Click);
@@ -190,13 +190,13 @@ namespace ProyectoFinalDint
         /// </summary>
         private void limpiarColecciones()
         {
-            int indexButtonElement = flowLayoutPanelColecciones.Controls.OfType<ButtonElement.ButtonElement>().Count() - 1;
+            int indexButtonElement = flowLayoutPanelColecciones.Controls.OfType<ControlElemento.Elemento>().Count() - 1;
             for (int i = indexButtonElement; i >= 0; i--)
             {
-                ButtonElement.ButtonElement button = flowLayoutPanelColecciones.Controls.OfType<ButtonElement.ButtonElement>().ElementAt(i);
-                if (button.Name != "buttonElementAnadirColeccion")
+                ControlElemento.Elemento coleccion = flowLayoutPanelColecciones.Controls.OfType<ControlElemento.Elemento>().ElementAt(i);
+                if (coleccion.Name != "buttonElementAnadirColeccion")
                 {
-                    flowLayoutPanelColecciones.Controls.Remove(button);
+                    flowLayoutPanelColecciones.Controls.Remove(coleccion);
                 }
             }
         }
@@ -244,12 +244,12 @@ namespace ProyectoFinalDint
 
             while (reader.Read())
             {
-                ControlElemento.Elemento button = new ControlElemento.Elemento();
-                button.Name = reader["nombre"].ToString();
-                button.Text = reader["nombre"].ToString();
-                button.Click += new EventHandler(buttonElementVerColeccion_Click);
+                ControlElemento.Elemento coleccion = new ControlElemento.Elemento();
+                coleccion.Name = reader["nombre"].ToString();
+                coleccion.setNombre(reader["nombre"].ToString());
+                coleccion.Click += new EventHandler(buttonElementVerColeccion_Click);
 
-                flowLayoutPanelColecciones.Controls.Add(button);
+                flowLayoutPanelColecciones.Controls.Add(coleccion);
             }
 
             connection.Close();
