@@ -244,7 +244,7 @@ namespace ProyectoFinalDint
 
             while (reader.Read())
             {
-                ButtonElement.ButtonElement button = new ButtonElement.ButtonElement();
+                ControlElemento.Elemento button = new ControlElemento.Elemento();
                 button.Name = reader["nombre"].ToString();
                 button.Text = reader["nombre"].ToString();
                 button.Click += new EventHandler(buttonElementVerColeccion_Click);

@@ -35,6 +35,9 @@
     <Reference Include="ButtonElement">
       <HintPath>..\..\ButtonElement\ButtonElement\bin\Debug\ButtonElement.dll</HintPath>
     </Reference>
+    <Reference Include="ControlElemento">
+      <HintPath>..\..\ControlElemento\ControlElemento\bin\Debug\ControlElemento.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.10.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />

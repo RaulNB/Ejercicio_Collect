@@ -38,12 +38,12 @@
             this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBoxBusqueda = new System.Windows.Forms.ToolStripTextBox();
-            this.buttonElementAnadirColeccion = new ButtonElement.ButtonElement();
             this.linkLabelColecciones = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanelColecciones = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonElementAnadirElemento = new ButtonElement.ButtonElement();
+            this.buttonElementAnadirColeccion = new ButtonElement.ButtonElement();
             this.linkLabelMisColecciones = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanelElementos = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonElementAnadirElemento = new ButtonElement.ButtonElement();
             this.menuStrip.SuspendLayout();
             this.flowLayoutPanelColecciones.SuspendLayout();
             this.flowLayoutPanelElementos.SuspendLayout();
@@ -133,25 +133,6 @@
             this.toolStripTextBoxBusqueda.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBoxBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxBusqueda_KeyDown);
             // 
-            // buttonElementAnadirColeccion
-            // 
-            this.buttonElementAnadirColeccion.BackColor = System.Drawing.Color.White;
-            this.buttonElementAnadirColeccion.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.buttonElementAnadirColeccion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonElementAnadirColeccion.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonElementAnadirColeccion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonElementAnadirColeccion.Image = ((System.Drawing.Image)(resources.GetObject("buttonElementAnadirColeccion.Image")));
-            this.buttonElementAnadirColeccion.Location = new System.Drawing.Point(3, 99);
-            this.buttonElementAnadirColeccion.MinimumSize = new System.Drawing.Size(250, 90);
-            this.buttonElementAnadirColeccion.Name = "buttonElementAnadirColeccion";
-            this.buttonElementAnadirColeccion.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.buttonElementAnadirColeccion.Size = new System.Drawing.Size(250, 90);
-            this.buttonElementAnadirColeccion.TabIndex = 3;
-            this.buttonElementAnadirColeccion.Text = "Añadir una colección";
-            this.buttonElementAnadirColeccion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonElementAnadirColeccion.UseVisualStyleBackColor = false;
-            this.buttonElementAnadirColeccion.Click += new System.EventHandler(this.buttonElementAnadirColeccion_Click);
-            // 
             // linkLabelColecciones
             // 
             this.linkLabelColecciones.AutoSize = true;
@@ -180,24 +161,24 @@
             this.flowLayoutPanelColecciones.Size = new System.Drawing.Size(923, 302);
             this.flowLayoutPanelColecciones.TabIndex = 4;
             // 
-            // buttonElementAnadirElemento
+            // buttonElementAnadirColeccion
             // 
-            this.buttonElementAnadirElemento.BackColor = System.Drawing.Color.White;
-            this.buttonElementAnadirElemento.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.buttonElementAnadirElemento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonElementAnadirElemento.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonElementAnadirElemento.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonElementAnadirElemento.Image = ((System.Drawing.Image)(resources.GetObject("buttonElementAnadirElemento.Image")));
-            this.buttonElementAnadirElemento.Location = new System.Drawing.Point(3, 99);
-            this.buttonElementAnadirElemento.MinimumSize = new System.Drawing.Size(250, 90);
-            this.buttonElementAnadirElemento.Name = "buttonElementAnadirElemento";
-            this.buttonElementAnadirElemento.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.buttonElementAnadirElemento.Size = new System.Drawing.Size(250, 90);
-            this.buttonElementAnadirElemento.TabIndex = 5;
-            this.buttonElementAnadirElemento.Text = "Añadir una elemento";
-            this.buttonElementAnadirElemento.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonElementAnadirElemento.UseVisualStyleBackColor = false;
-            this.buttonElementAnadirElemento.Click += new System.EventHandler(this.buttonElementAnadirElemento_Click);
+            this.buttonElementAnadirColeccion.BackColor = System.Drawing.Color.White;
+            this.buttonElementAnadirColeccion.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonElementAnadirColeccion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonElementAnadirColeccion.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonElementAnadirColeccion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonElementAnadirColeccion.Image = ((System.Drawing.Image)(resources.GetObject("buttonElementAnadirColeccion.Image")));
+            this.buttonElementAnadirColeccion.Location = new System.Drawing.Point(3, 99);
+            this.buttonElementAnadirColeccion.MinimumSize = new System.Drawing.Size(250, 90);
+            this.buttonElementAnadirColeccion.Name = "buttonElementAnadirColeccion";
+            this.buttonElementAnadirColeccion.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.buttonElementAnadirColeccion.Size = new System.Drawing.Size(250, 90);
+            this.buttonElementAnadirColeccion.TabIndex = 3;
+            this.buttonElementAnadirColeccion.Text = "Añadir una colección";
+            this.buttonElementAnadirColeccion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonElementAnadirColeccion.UseVisualStyleBackColor = false;
+            this.buttonElementAnadirColeccion.Click += new System.EventHandler(this.buttonElementAnadirColeccion_Click);
             // 
             // linkLabelMisColecciones
             // 
@@ -225,6 +206,25 @@
             this.flowLayoutPanelElementos.Size = new System.Drawing.Size(923, 302);
             this.flowLayoutPanelElementos.TabIndex = 4;
             this.flowLayoutPanelElementos.Visible = false;
+            // 
+            // buttonElementAnadirElemento
+            // 
+            this.buttonElementAnadirElemento.BackColor = System.Drawing.Color.White;
+            this.buttonElementAnadirElemento.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonElementAnadirElemento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonElementAnadirElemento.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonElementAnadirElemento.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonElementAnadirElemento.Image = ((System.Drawing.Image)(resources.GetObject("buttonElementAnadirElemento.Image")));
+            this.buttonElementAnadirElemento.Location = new System.Drawing.Point(3, 99);
+            this.buttonElementAnadirElemento.MinimumSize = new System.Drawing.Size(250, 90);
+            this.buttonElementAnadirElemento.Name = "buttonElementAnadirElemento";
+            this.buttonElementAnadirElemento.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.buttonElementAnadirElemento.Size = new System.Drawing.Size(250, 90);
+            this.buttonElementAnadirElemento.TabIndex = 5;
+            this.buttonElementAnadirElemento.Text = "Añadir una elemento";
+            this.buttonElementAnadirElemento.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonElementAnadirElemento.UseVisualStyleBackColor = false;
+            this.buttonElementAnadirElemento.Click += new System.EventHandler(this.buttonElementAnadirElemento_Click);
             // 
             // FormCollect
             // 
