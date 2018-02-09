@@ -35,7 +35,7 @@ namespace ProyectoFinalDint
         /// <summary>
         /// Muestra los elementos de la colección seleccionada
         /// </summary>
-        private void buttonElementVerColeccion_Click(Object sender, EventArgs e)
+        private void elementVerColeccion_Click(Object sender, EventArgs e)
         {
             ControlElemento.Elemento buttonClicked = sender as ControlElemento.Elemento;
             ColeccionActiva = buttonClicked.Name;
@@ -50,12 +50,13 @@ namespace ProyectoFinalDint
 
             while (reader.Read())
             {
-                ControlElemento.Elemento button = new ControlElemento.Elemento();
-                button.Name = reader["nombre"].ToString();
-                button.Text = reader["nombre"].ToString();
-                button.Click += new EventHandler(buttonElementVerElemento_Click);
+                ControlElemento.Elemento elemento = new ControlElemento.Elemento();
+                elemento.Name = reader["nombre"].ToString();
+                elemento.setNombre(reader["nombre"].ToString());
+                elemento.Margin = new Padding(70, 10, 0, 60);
+                elemento.Click += new EventHandler(elementVerElemento_Click);
 
-                flowLayoutPanelElementos.Controls.Add(button);
+                flowLayoutPanelElementos.Controls.Add(elemento);
             }
 
             connection.Close();
@@ -66,9 +67,9 @@ namespace ProyectoFinalDint
         /// <summary>
         /// Muestra los datos del elemento seleccionado
         /// </summary>
-        private void buttonElementVerElemento_Click(Object sender, EventArgs e)
+        private void elementVerElemento_Click(Object sender, EventArgs e)
         {
-            ButtonElement.ButtonElement buttonClicked = sender as ButtonElement.ButtonElement;
+            ControlElemento.Elemento buttonClicked = sender as ControlElemento.Elemento;
             FormVerElemento form = new FormVerElemento();
 
             connection.Open();
@@ -99,7 +100,7 @@ namespace ProyectoFinalDint
         /// <summary>
         /// Añade una coleccion desde un form externo y muestra las colecciones
         /// </summary>
-        private void buttonElementAnadirColeccion_Click(object sender, EventArgs e)
+        private void buttonAnadirColeccion_Click(object sender, EventArgs e)
         {
             FormNuevaColeccion form = new FormNuevaColeccion(connection);
             form.ShowDialog();
@@ -115,13 +116,13 @@ namespace ProyectoFinalDint
         /// </summary>
         private void crearColecciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            buttonElementAnadirColeccion_Click(sender, e);
+            buttonAnadirColeccion_Click(sender, e);
         }
 
         /// <summary>
-        /// Añade un elemento a una colección desde un form externo y muestra los elementos de esa colección
+        /// Añade un elemento a una colección desde un form externo y muestra los elementos de esa colección MODIFICAR
         /// </summary>
-        private void buttonElementAnadirElemento_Click(object sender, EventArgs e)
+        private void buttonAnadirElemento_Click(object sender, EventArgs e)
         {
             FormNuevoElemento form = new FormNuevoElemento(connection, ColeccionActiva);
             form.ShowDialog();
@@ -136,12 +137,13 @@ namespace ProyectoFinalDint
                 reader = command.ExecuteReader();
                 reader.Read();
 
-                ButtonElement.ButtonElement button = new ButtonElement.ButtonElement();
-                button.Name = reader["nombre"].ToString();
-                button.Text = reader["nombre"].ToString();
-                button.Click += new EventHandler(buttonElementVerElemento_Click);
+                ControlElemento.Elemento elemento = new ControlElemento.Elemento();
+                elemento.Name = reader["nombre"].ToString();
+                elemento.setNombre(reader["nombre"].ToString());
+                elemento.Margin = new Padding(70, 10, 0, 60);
+                elemento.Click += new EventHandler(elementVerElemento_Click);
 
-                flowLayoutPanelElementos.Controls.Add(button);
+                flowLayoutPanelElementos.Controls.Add(elemento);
 
                 connection.Close();
             }
@@ -174,13 +176,13 @@ namespace ProyectoFinalDint
         /// </summary>
         private void limpiarElementos()
         {
-            int indexButtonElement = flowLayoutPanelElementos.Controls.OfType<ButtonElement.ButtonElement>().Count() - 1;
+            int indexButtonElement = flowLayoutPanelElementos.Controls.OfType<ControlElemento.Elemento>().Count() - 1;
             for (int i = indexButtonElement; i >= 0; i--)
             {
-                ButtonElement.ButtonElement button = flowLayoutPanelElementos.Controls.OfType<ButtonElement.ButtonElement>().ElementAt(i);
-                if (button.Name != "buttonElementAnadirElemento")
+                ControlElemento.Elemento elemento = flowLayoutPanelElementos.Controls.OfType<ControlElemento.Elemento>().ElementAt(i);
+                if (elemento.Name != "buttonElementAnadirElemento")
                 {
-                    flowLayoutPanelElementos.Controls.Remove(button);
+                    flowLayoutPanelElementos.Controls.Remove(elemento);
                 }
             }
         }
@@ -247,7 +249,8 @@ namespace ProyectoFinalDint
                 ControlElemento.Elemento coleccion = new ControlElemento.Elemento();
                 coleccion.Name = reader["nombre"].ToString();
                 coleccion.setNombre(reader["nombre"].ToString());
-                coleccion.Click += new EventHandler(buttonElementVerColeccion_Click);
+                coleccion.Margin = new Padding(70, 10, 0, 60);
+                coleccion.Click += new EventHandler(elementVerColeccion_Click);
 
                 flowLayoutPanelColecciones.Controls.Add(coleccion);
             }
