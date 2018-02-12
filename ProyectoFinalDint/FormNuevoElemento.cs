@@ -12,11 +12,11 @@ namespace ProyectoFinalDint
         public string Descripcion { get; set; }
         public byte[] ImgBytes { get; set; }
         public string NombreCol { get; set; }
+        public string NombreUser { get; set; }
 
-        public FormNuevoElemento(MySqlConnection connection, string NombreCol)
+        public FormNuevoElemento(MySqlConnection connection)
         {
             this.connection = connection;
-            this.NombreCol = NombreCol;
 
             InitializeComponent();
         }
@@ -66,12 +66,13 @@ namespace ProyectoFinalDint
             {
                 connection.Open();
 
-                string insert = "Insert into elementos values(@nombre, @imagen, @descripcion, @nombre_col)";
+                string insert = "Insert into elementos values(@nombre, @imagen, @descripcion, @nombre_col, @nombre_user)";
                 MySqlCommand command = new MySqlCommand(insert, connection);
                 command.Parameters.AddWithValue("@nombre", Nombre);
                 command.Parameters.AddWithValue("@imagen", ImgBytes);
                 command.Parameters.AddWithValue("@descripcion", Descripcion);
                 command.Parameters.AddWithValue("@nombre_col", NombreCol);
+                command.Parameters.AddWithValue("@nombre_user", NombreUser);
 
                 try
                 {

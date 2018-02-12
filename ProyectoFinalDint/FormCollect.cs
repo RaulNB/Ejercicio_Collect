@@ -32,10 +32,13 @@ namespace ProyectoFinalDint
             
             limpiarElementos();
 
+            labelTituloColeccion.Text = ColeccionActiva;
+
             connection.Open();
 
-            command = new MySqlCommand("Select nombre from elementos where nombre_col = @nombre_col order by nombre", connection);
+            command = new MySqlCommand("Select nombre from elementos where nombre_col = @nombre_col and nombre_user=@nombre_user order by nombre", connection);
             command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
+            command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
             reader = command.ExecuteReader();
 
             while (reader.Read())
@@ -51,7 +54,7 @@ namespace ProyectoFinalDint
 
             connection.Close();
 
-            flowLayoutPanelElementos.Visible = true;
+            flowLayoutPanelColecciones.Visible = false;
         }
 
         /// <summary>
@@ -64,9 +67,10 @@ namespace ProyectoFinalDint
 
             connection.Open();
 
-            command = new MySqlCommand("Select nombre, descripcion, imagen from elementos where nombre=@nombre and nombre_col = @nombre_col", connection);
+            command = new MySqlCommand("Select nombre, descripcion, imagen from elementos where nombre=@nombre and nombre_col = @nombre_col and nombre_user = @nombre_user", connection);
             command.Parameters.AddWithValue("@nombre", buttonClicked.Name);
             command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
+            command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
             reader = command.ExecuteReader();
 
             reader.Read();
@@ -111,6 +115,7 @@ namespace ProyectoFinalDint
         /// </summary>
         private void crearColecciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            flowLayoutPanelColecciones.Visible = true;
             buttonAnadirColeccion_Click(sender, e);
         }
 
@@ -119,7 +124,9 @@ namespace ProyectoFinalDint
         /// </summary>
         private void buttonAnadirElemento_Click(object sender, EventArgs e)
         {
-            FormNuevoElemento form = new FormNuevoElemento(connection, ColeccionActiva);
+            FormNuevoElemento form = new FormNuevoElemento(connection);
+            form.NombreCol = ColeccionActiva;
+            form.NombreUser = UsuarioActivo;
             form.ShowDialog();
 
             if (form.DialogResult == DialogResult.OK)
@@ -139,7 +146,7 @@ namespace ProyectoFinalDint
         /// </summary>
         private void linkLabelMisColecciones_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            flowLayoutPanelElementos.Visible = false;
+            flowLayoutPanelColecciones.Visible = true;
         }
 
         /// <summary>
@@ -193,18 +200,28 @@ namespace ProyectoFinalDint
         /// </summary>
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string textoBusqueda = toolStripTextBoxBusqueda.Text.Trim();
-            if (textoBusqueda != "")
+            string textoBusqueda;
+
+            if (flowLayoutPanelColecciones.Visible == true)
             {
-                linkLabelColecciones.Visible = true;
+                textoBusqueda = toolStripTextBoxBusqueda.Text.Trim();
+                if (textoBusqueda != "")
+                {
+                    linkLabelColecciones.Visible = true;
 
-                command = new MySqlCommand("Select nombre from coleccion where nombre LIKE @nombre order by nombre", connection);
-                command.Parameters.AddWithValue("@nombre", "%" + textoBusqueda + "%");
+                    command = new MySqlCommand("Select nombre from coleccion where nombre LIKE @nombre and nombre_user = @nombre_user order by nombre", connection);
+                    command.Parameters.AddWithValue("@nombre", "%" + textoBusqueda + "%");
+                    command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
 
-                mostrarColecciones();
-
-                toolStripTextBoxBusqueda.Text = "";
+                    mostrarColecciones();
+                }
             }
+            else
+            {
+
+            }
+
+            toolStripTextBoxBusqueda.Text = "";
         }
 
         /// <summary>
@@ -260,9 +277,12 @@ namespace ProyectoFinalDint
         /// </summary>
         private void coleccionesFavoritasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            flowLayoutPanelColecciones.Visible = true;
+
             linkLabelColecciones.Visible = true;
 
-            command = new MySqlCommand("Select nombre from coleccion where favorito = 1 order by nombre", connection);
+            command = new MySqlCommand("Select nombre from coleccion where favorito = 1 and nombre_user = @nombre_user order by nombre", connection);
+            command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
 
             mostrarColecciones();
         }
@@ -272,11 +292,14 @@ namespace ProyectoFinalDint
         /// </summary>
         private void coleccionesRecientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            flowLayoutPanelColecciones.Visible = true;
+
             linkLabelColecciones.Visible = true;
 
-            command = new MySqlCommand("Select nombre from coleccion where fecha > @fecha order by fecha desc", connection);
+            command = new MySqlCommand("Select nombre from coleccion where fecha > @fecha and nombre_user = @nombre_user order by fecha desc", connection);
             command.Parameters.AddWithValue("@fecha", DateTime.Now.AddMonths(-1));
-            
+            command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+
             mostrarColecciones();
         }
 
@@ -310,6 +333,7 @@ namespace ProyectoFinalDint
                 UsuarioActivo = nombre;
 
                 flowLayoutPanelColecciones.Visible = true;
+                flowLayoutPanelElementos.Visible = true;
                 MainMenuStrip.Visible = true;
 
                 textBoxContrasenaUser.Text = "";

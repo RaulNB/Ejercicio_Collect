@@ -36,13 +36,18 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.crearColecciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBoxBusqueda = new System.Windows.Forms.ToolStripTextBox();
             this.linkLabelColecciones = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanelColecciones = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanelColecciones = new System.Windows.Forms.TableLayoutPanel();
+            this.labelMisColecciones = new System.Windows.Forms.Label();
             this.buttonAnadirColeccion = new System.Windows.Forms.Button();
             this.linkLabelMisColecciones = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanelElementos = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanelElementos = new System.Windows.Forms.TableLayoutPanel();
+            this.labelTituloColeccion = new System.Windows.Forms.Label();
             this.buttonAnadirElemento = new System.Windows.Forms.Button();
             this.panelInicioSesion = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,12 +57,13 @@
             this.textBoxNombreUser = new System.Windows.Forms.TextBox();
             this.buttonInicioSesion = new System.Windows.Forms.Button();
             this.labelContrasena = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelRegistro = new System.Windows.Forms.Label();
             this.linkLabelRegistro = new System.Windows.Forms.LinkLabel();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.flowLayoutPanelColecciones.SuspendLayout();
+            this.tableLayoutPanelColecciones.SuspendLayout();
             this.flowLayoutPanelElementos.SuspendLayout();
+            this.tableLayoutPanelElementos.SuspendLayout();
             this.panelInicioSesion.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -128,6 +134,13 @@
             this.perfilToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.perfilToolStripMenuItem.Size = new System.Drawing.Size(28, 23);
             // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -152,11 +165,10 @@
             // linkLabelColecciones
             // 
             this.linkLabelColecciones.AutoSize = true;
-            this.flowLayoutPanelColecciones.SetFlowBreak(this.linkLabelColecciones, true);
             this.linkLabelColecciones.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelColecciones.Location = new System.Drawing.Point(3, 0);
             this.linkLabelColecciones.Name = "linkLabelColecciones";
-            this.linkLabelColecciones.Size = new System.Drawing.Size(185, 21);
+            this.linkLabelColecciones.Size = new System.Drawing.Size(103, 42);
             this.linkLabelColecciones.TabIndex = 7;
             this.linkLabelColecciones.TabStop = true;
             this.linkLabelColecciones.Text = "Ver todas las Colecciones";
@@ -169,21 +181,50 @@
             this.flowLayoutPanelColecciones.AutoSize = true;
             this.flowLayoutPanelColecciones.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanelColecciones.BackColor = System.Drawing.SystemColors.Window;
-            this.flowLayoutPanelColecciones.Controls.Add(this.linkLabelColecciones);
+            this.flowLayoutPanelColecciones.Controls.Add(this.tableLayoutPanelColecciones);
             this.flowLayoutPanelColecciones.Controls.Add(this.buttonAnadirColeccion);
             this.flowLayoutPanelColecciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelColecciones.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelColecciones.Name = "flowLayoutPanelColecciones";
-            this.flowLayoutPanelColecciones.Size = new System.Drawing.Size(821, 350);
+            this.flowLayoutPanelColecciones.Size = new System.Drawing.Size(866, 350);
             this.flowLayoutPanelColecciones.TabIndex = 4;
             this.flowLayoutPanelColecciones.Visible = false;
+            // 
+            // tableLayoutPanelColecciones
+            // 
+            this.tableLayoutPanelColecciones.ColumnCount = 2;
+            this.tableLayoutPanelColecciones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.66995F));
+            this.tableLayoutPanelColecciones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.33005F));
+            this.tableLayoutPanelColecciones.Controls.Add(this.linkLabelColecciones, 0, 0);
+            this.tableLayoutPanelColecciones.Controls.Add(this.labelMisColecciones, 1, 0);
+            this.flowLayoutPanelColecciones.SetFlowBreak(this.tableLayoutPanelColecciones, true);
+            this.tableLayoutPanelColecciones.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelColecciones.Name = "tableLayoutPanelColecciones";
+            this.tableLayoutPanelColecciones.RowCount = 1;
+            this.tableLayoutPanelColecciones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelColecciones.Size = new System.Drawing.Size(812, 50);
+            this.tableLayoutPanelColecciones.TabIndex = 9;
+            // 
+            // labelMisColecciones
+            // 
+            this.labelMisColecciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMisColecciones.AutoSize = true;
+            this.labelMisColecciones.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMisColecciones.Location = new System.Drawing.Point(113, 0);
+            this.labelMisColecciones.Name = "labelMisColecciones";
+            this.labelMisColecciones.Size = new System.Drawing.Size(696, 50);
+            this.labelMisColecciones.TabIndex = 8;
+            this.labelMisColecciones.Text = "Mis Colecciones";
+            this.labelMisColecciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonAnadirColeccion
             // 
             this.buttonAnadirColeccion.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.buttonAnadirColeccion.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAnadirColeccion.Image = ((System.Drawing.Image)(resources.GetObject("buttonAnadirColeccion.Image")));
-            this.buttonAnadirColeccion.Location = new System.Drawing.Point(70, 193);
+            this.buttonAnadirColeccion.Location = new System.Drawing.Point(70, 66);
             this.buttonAnadirColeccion.Margin = new System.Windows.Forms.Padding(70, 10, 0, 60);
             this.buttonAnadirColeccion.Name = "buttonAnadirColeccion";
             this.buttonAnadirColeccion.Size = new System.Drawing.Size(292, 113);
@@ -196,11 +237,10 @@
             // linkLabelMisColecciones
             // 
             this.linkLabelMisColecciones.AutoSize = true;
-            this.flowLayoutPanelElementos.SetFlowBreak(this.linkLabelMisColecciones, true);
             this.linkLabelMisColecciones.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelMisColecciones.Location = new System.Drawing.Point(3, 0);
             this.linkLabelMisColecciones.Name = "linkLabelMisColecciones";
-            this.linkLabelMisColecciones.Size = new System.Drawing.Size(182, 21);
+            this.linkLabelMisColecciones.Size = new System.Drawing.Size(100, 42);
             this.linkLabelMisColecciones.TabIndex = 6;
             this.linkLabelMisColecciones.TabStop = true;
             this.linkLabelMisColecciones.Text = "Volver a Mis Colecciones";
@@ -211,21 +251,50 @@
             this.flowLayoutPanelElementos.AutoSize = true;
             this.flowLayoutPanelElementos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanelElementos.BackColor = System.Drawing.SystemColors.Window;
-            this.flowLayoutPanelElementos.Controls.Add(this.linkLabelMisColecciones);
+            this.flowLayoutPanelElementos.Controls.Add(this.tableLayoutPanelElementos);
             this.flowLayoutPanelElementos.Controls.Add(this.buttonAnadirElemento);
             this.flowLayoutPanelElementos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelElementos.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelElementos.Name = "flowLayoutPanelElementos";
-            this.flowLayoutPanelElementos.Size = new System.Drawing.Size(821, 350);
+            this.flowLayoutPanelElementos.Size = new System.Drawing.Size(866, 350);
             this.flowLayoutPanelElementos.TabIndex = 4;
             this.flowLayoutPanelElementos.Visible = false;
+            // 
+            // tableLayoutPanelElementos
+            // 
+            this.tableLayoutPanelElementos.ColumnCount = 2;
+            this.tableLayoutPanelElementos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelElementos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 706F));
+            this.tableLayoutPanelElementos.Controls.Add(this.linkLabelMisColecciones, 0, 0);
+            this.tableLayoutPanelElementos.Controls.Add(this.labelTituloColeccion, 1, 0);
+            this.flowLayoutPanelElementos.SetFlowBreak(this.tableLayoutPanelElementos, true);
+            this.tableLayoutPanelElementos.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelElementos.Name = "tableLayoutPanelElementos";
+            this.tableLayoutPanelElementos.RowCount = 1;
+            this.tableLayoutPanelElementos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelElementos.Size = new System.Drawing.Size(860, 42);
+            this.tableLayoutPanelElementos.TabIndex = 8;
+            // 
+            // labelTituloColeccion
+            // 
+            this.labelTituloColeccion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTituloColeccion.AutoSize = true;
+            this.labelTituloColeccion.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTituloColeccion.Location = new System.Drawing.Point(157, 0);
+            this.labelTituloColeccion.Name = "labelTituloColeccion";
+            this.labelTituloColeccion.Size = new System.Drawing.Size(700, 42);
+            this.labelTituloColeccion.TabIndex = 7;
+            this.labelTituloColeccion.Text = "titulo";
+            this.labelTituloColeccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonAnadirElemento
             // 
             this.buttonAnadirElemento.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.buttonAnadirElemento.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAnadirElemento.Image = ((System.Drawing.Image)(resources.GetObject("buttonAnadirElemento.Image")));
-            this.buttonAnadirElemento.Location = new System.Drawing.Point(70, 193);
+            this.buttonAnadirElemento.Location = new System.Drawing.Point(70, 58);
             this.buttonAnadirElemento.Margin = new System.Windows.Forms.Padding(70, 10, 0, 60);
             this.buttonAnadirElemento.Name = "buttonAnadirElemento";
             this.buttonAnadirElemento.Size = new System.Drawing.Size(292, 113);
@@ -243,7 +312,7 @@
             this.panelInicioSesion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInicioSesion.Location = new System.Drawing.Point(0, 0);
             this.panelInicioSesion.Name = "panelInicioSesion";
-            this.panelInicioSesion.Size = new System.Drawing.Size(821, 350);
+            this.panelInicioSesion.Size = new System.Drawing.Size(866, 350);
             this.panelInicioSesion.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -256,7 +325,7 @@
             this.tableLayoutPanel1.Controls.Add(this.textBoxNombreUser, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.buttonInicioSesion, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.labelContrasena, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.labelRegistro, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.linkLabelRegistro, 0, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -345,19 +414,19 @@
             this.labelContrasena.Text = "Contraseña";
             this.labelContrasena.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // label1
+            // labelRegistro
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 224);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 36);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "¿No tienes cuenta aún?";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.labelRegistro.AutoSize = true;
+            this.labelRegistro.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRegistro.Location = new System.Drawing.Point(3, 224);
+            this.labelRegistro.Name = "labelRegistro";
+            this.labelRegistro.Size = new System.Drawing.Size(274, 36);
+            this.labelRegistro.TabIndex = 6;
+            this.labelRegistro.Text = "¿No tienes cuenta aún?";
+            this.labelRegistro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // linkLabelRegistro
             // 
@@ -375,23 +444,16 @@
             this.linkLabelRegistro.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.linkLabelRegistro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegistro_LinkClicked);
             // 
-            // cerrarSesiónToolStripMenuItem
-            // 
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
-            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
-            // 
             // FormCollect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(821, 350);
+            this.ClientSize = new System.Drawing.Size(866, 350);
             this.Controls.Add(this.flowLayoutPanelElementos);
             this.Controls.Add(this.flowLayoutPanelColecciones);
-            this.Controls.Add(this.panelInicioSesion);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.panelInicioSesion);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(558, 388);
@@ -400,9 +462,11 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.flowLayoutPanelColecciones.ResumeLayout(false);
-            this.flowLayoutPanelColecciones.PerformLayout();
+            this.tableLayoutPanelColecciones.ResumeLayout(false);
+            this.tableLayoutPanelColecciones.PerformLayout();
             this.flowLayoutPanelElementos.ResumeLayout(false);
-            this.flowLayoutPanelElementos.PerformLayout();
+            this.tableLayoutPanelElementos.ResumeLayout(false);
+            this.tableLayoutPanelElementos.PerformLayout();
             this.panelInicioSesion.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -436,9 +500,13 @@
         private System.Windows.Forms.TextBox textBoxNombreUser;
         private System.Windows.Forms.Button buttonInicioSesion;
         private System.Windows.Forms.Label labelContrasena;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelRegistro;
         private System.Windows.Forms.LinkLabel linkLabelRegistro;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelElementos;
+        private System.Windows.Forms.Label labelTituloColeccion;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelColecciones;
+        private System.Windows.Forms.Label labelMisColecciones;
     }
 }
 
