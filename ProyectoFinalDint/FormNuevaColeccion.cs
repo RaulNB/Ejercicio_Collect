@@ -7,7 +7,8 @@ namespace ProyectoFinalDint
     public partial class FormNuevaColeccion : Form
     {
         private MySqlConnection connection;
-        public string Nombre { get; set; }
+        private string Nombre;
+        public string NombreUser { get; set; }
 
         public FormNuevaColeccion(MySqlConnection connection)
         {
@@ -30,9 +31,10 @@ namespace ProyectoFinalDint
             {
                 connection.Open();
 
-                string insert = "Insert into coleccion (nombre) values(@nombre)";
+                string insert = "Insert into coleccion (nombre, nombre_user) values(@nombre, @nombre_user)";
                 MySqlCommand command = new MySqlCommand(insert, connection);
                 command.Parameters.AddWithValue("@nombre", Nombre);
+                command.Parameters.AddWithValue("@nombre_user", NombreUser);
 
                 try
                 {

@@ -8,6 +8,7 @@ namespace ProyectoFinalDint
     public partial class FormCollect : Form
     {
         public string ColeccionActiva { get; set; }
+        public string UsuarioActivo { get; set; }
 
         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
         MySqlConnection connection = null;
@@ -22,24 +23,13 @@ namespace ProyectoFinalDint
         }
 
         /// <summary>
-        /// Muestra las colecciones disponibles
-        /// </summary>
-        private void FormCollect_Load(object sender, EventArgs e)
-        {
-            linkLabelColecciones.Visible = false;
-            command = new MySqlCommand("Select nombre from coleccion order by nombre", connection);
-
-            mostrarColecciones();
-        }
-
-        /// <summary>
         /// Muestra los elementos de la colección seleccionada
         /// </summary>
         private void elementVerColeccion_Click(Object sender, EventArgs e)
         {
             ControlElemento.Elemento buttonClicked = sender as ControlElemento.Elemento;
             ColeccionActiva = buttonClicked.Name;
-
+            
             limpiarElementos();
 
             connection.Open();
@@ -103,11 +93,16 @@ namespace ProyectoFinalDint
         private void buttonAnadirColeccion_Click(object sender, EventArgs e)
         {
             FormNuevaColeccion form = new FormNuevaColeccion(connection);
+            form.NombreUser = UsuarioActivo;
             form.ShowDialog();
 
             if (form.DialogResult == DialogResult.OK)
             {
-                FormCollect_Load(sender, e);
+                linkLabelColecciones.Visible = false;
+                command = new MySqlCommand("Select nombre from coleccion where nombre_user=@usuario order by nombre", connection);
+                command.Parameters.AddWithValue("@usuario", UsuarioActivo);
+
+                mostrarColecciones();
             }
         }
 
@@ -129,23 +124,13 @@ namespace ProyectoFinalDint
 
             if (form.DialogResult == DialogResult.OK)
             {
-                connection.Open();
-
-                command = new MySqlCommand("Select nombre from elementos where nombre=@nombre and nombre_col = @nombre_col order", connection);
-                command.Parameters.AddWithValue("@nombre", form.Nombre);
-                command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
-                reader = command.ExecuteReader();
-                reader.Read();
-
                 ControlElemento.Elemento elemento = new ControlElemento.Elemento();
-                elemento.Name = reader["nombre"].ToString();
-                elemento.setNombre(reader["nombre"].ToString());
+                elemento.Name =form.Nombre;
+                elemento.setNombre(form.Nombre);
                 elemento.Margin = new Padding(70, 10, 0, 60);
                 elemento.Click += new EventHandler(elementVerElemento_Click);
 
                 flowLayoutPanelElementos.Controls.Add(elemento);
-
-                connection.Close();
             }
         }
 
@@ -263,7 +248,11 @@ namespace ProyectoFinalDint
         /// </summary>
         private void linkLabelColecciones_Click(object sender, EventArgs e)
         {
-            FormCollect_Load(sender, e);
+            linkLabelColecciones.Visible = false;
+            command = new MySqlCommand("Select nombre from coleccion where nombre_user=@usuario order by nombre", connection);
+            command.Parameters.AddWithValue("@usuario", UsuarioActivo);
+
+            mostrarColecciones();
         }
 
         /// <summary>
@@ -289,6 +278,60 @@ namespace ProyectoFinalDint
             command.Parameters.AddWithValue("@fecha", DateTime.Now.AddMonths(-1));
             
             mostrarColecciones();
+        }
+
+        private void linkLabelRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormRegistro form = new FormRegistro(connection);
+            form.ShowDialog();
+
+            iniciarSesion(form.Nombre, form.Contrasena);
+        }
+
+        private void buttonInicioSesion_Click(object sender, EventArgs e)
+        {
+            iniciarSesion(textBoxNombreUser.Text, textBoxContrasenaUser.Text);
+        }
+
+        private void iniciarSesion (string nombre, string contrasena)
+        {
+            connection.Open();
+
+            command = new MySqlCommand("Select nombre from usuarios where nombre=@nombre and contrasena=@contrasena", connection);
+            command.Parameters.AddWithValue("@nombre", nombre);
+            command.Parameters.AddWithValue("@contrasena", contrasena);
+
+            reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                connection.Close();
+
+                UsuarioActivo = nombre;
+
+                flowLayoutPanelColecciones.Visible = true;
+                MainMenuStrip.Visible = true;
+
+                textBoxContrasenaUser.Text = "";
+
+                linkLabelColecciones.Visible = false;
+                command = new MySqlCommand("Select nombre from coleccion where nombre_user=@usuario order by nombre", connection);
+                command.Parameters.AddWithValue("@usuario", UsuarioActivo);
+
+                mostrarColecciones();
+            }
+            else
+            {
+                connection.Close();
+                MessageBox.Show("Nombre o contraseña incorrecto", "Error");
+            }
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainMenuStrip.Visible = false;
+            flowLayoutPanelElementos.Visible = false;
+            flowLayoutPanelColecciones.Visible = false;
         }
     }
 }

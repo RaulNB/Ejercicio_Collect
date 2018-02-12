@@ -17,3 +17,4 @@ C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\Proye
 C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.FormVerElemento.resources
 C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\ControlElemento.dll
 C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\ControlElemento.pdb
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.FormRegistro.resources
