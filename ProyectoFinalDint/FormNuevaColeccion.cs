@@ -7,7 +7,7 @@ namespace ProyectoFinalDint
     public partial class FormNuevaColeccion : Form
     {
         private MySqlConnection connection;
-        private string Nombre;
+        public string Nombre { get; set; }
         public string NombreUser { get; set; }
 
         public FormNuevaColeccion(MySqlConnection connection)

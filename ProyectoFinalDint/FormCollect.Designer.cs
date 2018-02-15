@@ -59,6 +59,7 @@
             this.labelContrasena = new System.Windows.Forms.Label();
             this.labelRegistro = new System.Windows.Forms.Label();
             this.linkLabelRegistro = new System.Windows.Forms.LinkLabel();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.flowLayoutPanelColecciones.SuspendLayout();
             this.tableLayoutPanelColecciones.SuspendLayout();
@@ -74,11 +75,12 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
             this.perfilToolStripMenuItem,
+            this.homeToolStripMenuItem,
             this.buscarToolStripMenuItem,
             this.toolStripTextBoxBusqueda});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(821, 27);
+            this.menuStrip.Size = new System.Drawing.Size(866, 27);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             this.menuStrip.Visible = false;
@@ -136,8 +138,9 @@
             // 
             // cerrarSesiónToolStripMenuItem
             // 
+            this.cerrarSesiónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cerrarSesiónToolStripMenuItem.Image")));
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
@@ -244,10 +247,10 @@
             this.linkLabelMisColecciones.TabIndex = 6;
             this.linkLabelMisColecciones.TabStop = true;
             this.linkLabelMisColecciones.Text = "Volver a Mis Colecciones";
-            this.linkLabelMisColecciones.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelMisColecciones_LinkClicked);
             // 
             // flowLayoutPanelElementos
             // 
+            this.flowLayoutPanelElementos.AutoScroll = true;
             this.flowLayoutPanelElementos.AutoSize = true;
             this.flowLayoutPanelElementos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanelElementos.BackColor = System.Drawing.SystemColors.Window;
@@ -351,6 +354,7 @@
             this.textBoxContrasenaUser.Size = new System.Drawing.Size(274, 20);
             this.textBoxContrasenaUser.TabIndex = 4;
             this.textBoxContrasenaUser.UseSystemPasswordChar = true;
+            this.textBoxContrasenaUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxContrasenaUser_KeyDown);
             // 
             // labelInicioSesion
             // 
@@ -387,6 +391,7 @@
             this.textBoxNombreUser.Name = "textBoxNombreUser";
             this.textBoxNombreUser.Size = new System.Drawing.Size(274, 20);
             this.textBoxNombreUser.TabIndex = 2;
+            this.textBoxNombreUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxNombreUser_KeyDown);
             // 
             // buttonInicioSesion
             // 
@@ -443,6 +448,14 @@
             this.linkLabelRegistro.Text = "Regístrate Aquí";
             this.linkLabelRegistro.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.linkLabelRegistro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegistro_LinkClicked);
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.homeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("homeToolStripMenuItem.Image")));
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(28, 23);
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // FormCollect
             // 
@@ -507,6 +520,7 @@
         private System.Windows.Forms.Label labelTituloColeccion;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelColecciones;
         private System.Windows.Forms.Label labelMisColecciones;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
     }
 }
 

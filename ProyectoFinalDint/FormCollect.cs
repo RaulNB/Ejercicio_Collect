@@ -34,27 +34,17 @@ namespace ProyectoFinalDint
 
             labelTituloColeccion.Text = ColeccionActiva;
 
-            connection.Open();
+            linkLabelMisColecciones.Text = "Volver a mis colecciones";
+            linkLabelMisColecciones.LinkClicked += linkLabelMisColecciones_LinkClicked;
 
             command = new MySqlCommand("Select nombre from elementos where nombre_col = @nombre_col and nombre_user=@nombre_user order by nombre", connection);
             command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
             command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
-            reader = command.ExecuteReader();
 
-            while (reader.Read())
-            {
-                ControlElemento.Elemento elemento = new ControlElemento.Elemento();
-                elemento.Name = reader["nombre"].ToString();
-                elemento.setNombre(reader["nombre"].ToString());
-                elemento.Margin = new Padding(70, 10, 0, 60);
-                elemento.Click += new EventHandler(elementVerElemento_Click);
-
-                flowLayoutPanelElementos.Controls.Add(elemento);
-            }
-
-            connection.Close();
+            mostrarElementos();
 
             flowLayoutPanelColecciones.Visible = false;
+            flowLayoutPanelElementos.Visible = true;
         }
 
         /// <summary>
@@ -102,11 +92,10 @@ namespace ProyectoFinalDint
 
             if (form.DialogResult == DialogResult.OK)
             {
-                linkLabelColecciones.Visible = false;
-                command = new MySqlCommand("Select nombre from coleccion where nombre_user=@usuario order by nombre", connection);
-                command.Parameters.AddWithValue("@usuario", UsuarioActivo);
+                ControlElemento.Elemento buttonClicked = new ControlElemento.Elemento();
+                buttonClicked.Name = form.Nombre;
 
-                mostrarColecciones();
+                elementVerColeccion_Click(buttonClicked, e);
             }
         }
 
@@ -131,13 +120,15 @@ namespace ProyectoFinalDint
 
             if (form.DialogResult == DialogResult.OK)
             {
-                ControlElemento.Elemento elemento = new ControlElemento.Elemento();
-                elemento.Name =form.Nombre;
-                elemento.setNombre(form.Nombre);
-                elemento.Margin = new Padding(70, 10, 0, 60);
-                elemento.Click += new EventHandler(elementVerElemento_Click);
+                linkLabelMisColecciones.Text = "Volver a mis colecciones";
+                linkLabelMisColecciones.LinkClicked += linkLabelMisColecciones_LinkClicked;
+                linkLabelMisColecciones.LinkClicked -= linkLabelMisColecciones_TodosElementos;
 
-                flowLayoutPanelElementos.Controls.Add(elemento);
+                command = new MySqlCommand("Select nombre from elementos where nombre_user = @nombre_user and nombre_col = @nombre_col order by nombre", connection);
+                command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+                command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
+
+                mostrarElementos();
             }
         }
 
@@ -147,6 +138,9 @@ namespace ProyectoFinalDint
         private void linkLabelMisColecciones_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             flowLayoutPanelColecciones.Visible = true;
+            flowLayoutPanelElementos.Visible = false;
+
+            homeToolStripMenuItem_Click(sender, null);
         }
 
         /// <summary>
@@ -200,12 +194,24 @@ namespace ProyectoFinalDint
         /// </summary>
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string textoBusqueda;
+            string textoBusqueda = toolStripTextBoxBusqueda.Text.Trim();
 
-            if (flowLayoutPanelColecciones.Visible == true)
+            if (textoBusqueda != "")
             {
-                textoBusqueda = toolStripTextBoxBusqueda.Text.Trim();
-                if (textoBusqueda != "")
+                if (flowLayoutPanelColecciones.Visible == false && flowLayoutPanelElementos.Visible == true)
+                {
+                    linkLabelMisColecciones.Text = "Ver todos los elementos";
+                    linkLabelMisColecciones.LinkClicked -= linkLabelMisColecciones_LinkClicked;
+                    linkLabelMisColecciones.LinkClicked += linkLabelMisColecciones_TodosElementos;
+
+                    command = new MySqlCommand("Select nombre from elementos where nombre LIKE @nombre and nombre_user = @nombre_user and nombre_col = @nombre_col order by nombre", connection);
+                    command.Parameters.AddWithValue("@nombre", "%" + textoBusqueda + "%");
+                    command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+                    command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
+
+                    mostrarElementos();
+                }
+                else
                 {
                     linkLabelColecciones.Visible = true;
 
@@ -216,12 +222,21 @@ namespace ProyectoFinalDint
                     mostrarColecciones();
                 }
             }
-            else
-            {
-
-            }
 
             toolStripTextBoxBusqueda.Text = "";
+        }
+
+        private void linkLabelMisColecciones_TodosElementos(Object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabelMisColecciones.Text = "Volver a mis colecciones";
+            linkLabelMisColecciones.LinkClicked += linkLabelMisColecciones_LinkClicked;
+            linkLabelMisColecciones.LinkClicked -= linkLabelMisColecciones_TodosElementos;
+
+            command = new MySqlCommand("Select nombre from elementos where nombre_user = @nombre_user and nombre_col = @nombre_col order by nombre", connection);
+            command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+            command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
+
+            mostrarElementos();
         }
 
         /// <summary>
@@ -254,7 +269,34 @@ namespace ProyectoFinalDint
                 coleccion.Margin = new Padding(70, 10, 0, 60);
                 coleccion.Click += new EventHandler(elementVerColeccion_Click);
 
+                
+
                 flowLayoutPanelColecciones.Controls.Add(coleccion);
+            }
+
+            connection.Close();
+        }
+
+        /// <summary>
+        /// Muestra los elementos de una colección a partir de una query definida antes de llamar a la función
+        /// </summary>
+        private void mostrarElementos()
+        {
+            limpiarElementos();
+
+            connection.Open();
+
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ControlElemento.Elemento elemento = new ControlElemento.Elemento();
+                elemento.Name = reader["nombre"].ToString();
+                elemento.setNombre(reader["nombre"].ToString());
+                elemento.Margin = new Padding(70, 10, 0, 60);
+                elemento.Click += new EventHandler(elementVerElemento_Click);
+
+                flowLayoutPanelElementos.Controls.Add(elemento);
             }
 
             connection.Close();
@@ -332,17 +374,9 @@ namespace ProyectoFinalDint
 
                 UsuarioActivo = nombre;
 
-                flowLayoutPanelColecciones.Visible = true;
-                flowLayoutPanelElementos.Visible = true;
-                MainMenuStrip.Visible = true;
-
                 textBoxContrasenaUser.Text = "";
 
-                linkLabelColecciones.Visible = false;
-                command = new MySqlCommand("Select nombre from coleccion where nombre_user=@usuario order by nombre", connection);
-                command.Parameters.AddWithValue("@usuario", UsuarioActivo);
-
-                mostrarColecciones();
+                homeToolStripMenuItem_Click(null, null);
             }
             else
             {
@@ -356,6 +390,37 @@ namespace ProyectoFinalDint
             MainMenuStrip.Visible = false;
             flowLayoutPanelElementos.Visible = false;
             flowLayoutPanelColecciones.Visible = false;
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanelColecciones.Visible = true;
+            flowLayoutPanelElementos.Visible = true;
+            MainMenuStrip.Visible = true;
+
+            textBoxContrasenaUser.Text = "";
+
+            linkLabelColecciones.Visible = false;
+            command = new MySqlCommand("Select nombre from coleccion where nombre_user=@usuario order by nombre", connection);
+            command.Parameters.AddWithValue("@usuario", UsuarioActivo);
+
+            mostrarColecciones();
+        }
+
+        private void textBoxNombreUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                iniciarSesion(textBoxNombreUser.Text, textBoxContrasenaUser.Text);
+            }
+        }
+
+        private void textBoxContrasenaUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                iniciarSesion(textBoxNombreUser.Text, textBoxContrasenaUser.Text);
+            }
         }
     }
 }
