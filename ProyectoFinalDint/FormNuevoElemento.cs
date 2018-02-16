@@ -51,7 +51,6 @@ namespace ProyectoFinalDint
                 FileStream fs = new FileStream(textBoxImg.Text, FileMode.Open);
                 BinaryReader reader = new BinaryReader(fs);
                 ImgBytes = reader.ReadBytes((int)fs.Length);
-                fs.Close();
                 reader.Close();
             }
 

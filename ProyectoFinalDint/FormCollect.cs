@@ -215,7 +215,7 @@ namespace ProyectoFinalDint
                 {
                     linkLabelColecciones.Visible = true;
 
-                    command = new MySqlCommand("Select nombre from coleccion where nombre LIKE @nombre and nombre_user = @nombre_user order by nombre", connection);
+                    command = new MySqlCommand("Select nombre, favorito from coleccion where nombre LIKE @nombre and nombre_user = @nombre_user order by nombre", connection);
                     command.Parameters.AddWithValue("@nombre", "%" + textoBusqueda + "%");
                     command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
 
@@ -269,12 +269,75 @@ namespace ProyectoFinalDint
                 coleccion.Margin = new Padding(70, 10, 0, 60);
                 coleccion.Click += new EventHandler(elementVerColeccion_Click);
 
-                
+                if(reader["favorito"].ToString() == "0")
+                {
+                    coleccion.setFavorito(false);
+                }
+                else
+                {
+                    coleccion.setFavorito(true);
+                }
+
+                coleccion.setButtonBorrarClick(buttonBorrar_Click) ;
+                coleccion.setButtonEditarClick(buttonEditar_Click);
+                coleccion.setButtonFavoritosClick(buttonFavoritos_Click);
 
                 flowLayoutPanelColecciones.Controls.Add(coleccion);
             }
 
             connection.Close();
+        }
+
+        private void buttonBorrar_Click(object sender, EventArgs e)
+        {
+            Button buttonClicked = sender as Button;
+
+            MySqlCommand delete = new MySqlCommand("Delete from coleccion where nombre_user = @nombre_user and nombre = @nombre", connection);
+            delete.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+            delete.Parameters.AddWithValue("@nombre", buttonClicked.Name);
+
+            connection.Open();
+            delete.ExecuteNonQuery();
+            connection.Close();
+
+            homeToolStripMenuItem_Click(sender, null);
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonFavoritos_Click(object sender, EventArgs e)
+        {
+            Button buttonClicked = sender as Button;
+            MySqlCommand favorito = new MySqlCommand("Select favorito from coleccion where nombre_user = @nombre_user and nombre = @nombre", connection);
+            favorito.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+            favorito.Parameters.AddWithValue("@nombre", buttonClicked.Name);
+
+            connection.Open();
+
+            MySqlDataReader readerFav = favorito.ExecuteReader();
+            readerFav.Read();
+
+            if(readerFav["favorito"].ToString() == "0")
+            {
+                favorito = new MySqlCommand("Update coleccion set favorito = 1 where nombre_user = @nombre_user and nombre = @nombre", connection);
+            }
+            else
+            {
+                favorito = new MySqlCommand("Update coleccion set favorito = 0 where nombre_user = @nombre_user and nombre = @nombre", connection);
+            }
+
+            readerFav.Close();
+            
+            favorito.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+            favorito.Parameters.AddWithValue("@nombre", buttonClicked.Name);
+
+            favorito.ExecuteNonQuery();
+            connection.Close();
+
+            homeToolStripMenuItem_Click(sender, e);
         }
 
         /// <summary>
@@ -295,6 +358,7 @@ namespace ProyectoFinalDint
                 elemento.setNombre(reader["nombre"].ToString());
                 elemento.Margin = new Padding(70, 10, 0, 60);
                 elemento.Click += new EventHandler(elementVerElemento_Click);
+                elemento.ocultarFavoritos();
 
                 flowLayoutPanelElementos.Controls.Add(elemento);
             }
@@ -308,7 +372,7 @@ namespace ProyectoFinalDint
         private void linkLabelColecciones_Click(object sender, EventArgs e)
         {
             linkLabelColecciones.Visible = false;
-            command = new MySqlCommand("Select nombre from coleccion where nombre_user=@usuario order by nombre", connection);
+            command = new MySqlCommand("Select nombre, favorito from coleccion where nombre_user=@usuario order by nombre", connection);
             command.Parameters.AddWithValue("@usuario", UsuarioActivo);
 
             mostrarColecciones();
@@ -323,7 +387,7 @@ namespace ProyectoFinalDint
 
             linkLabelColecciones.Visible = true;
 
-            command = new MySqlCommand("Select nombre from coleccion where favorito = 1 and nombre_user = @nombre_user order by nombre", connection);
+            command = new MySqlCommand("Select nombre, favorito from coleccion where favorito = 1 and nombre_user = @nombre_user order by nombre", connection);
             command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
 
             mostrarColecciones();
@@ -338,7 +402,7 @@ namespace ProyectoFinalDint
 
             linkLabelColecciones.Visible = true;
 
-            command = new MySqlCommand("Select nombre from coleccion where fecha > @fecha and nombre_user = @nombre_user order by fecha desc", connection);
+            command = new MySqlCommand("Select nombre, favorito from coleccion where fecha > @fecha and nombre_user = @nombre_user order by fecha desc", connection);
             command.Parameters.AddWithValue("@fecha", DateTime.Now.AddMonths(-1));
             command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
 
@@ -401,7 +465,7 @@ namespace ProyectoFinalDint
             textBoxContrasenaUser.Text = "";
 
             linkLabelColecciones.Visible = false;
-            command = new MySqlCommand("Select nombre from coleccion where nombre_user=@usuario order by nombre", connection);
+            command = new MySqlCommand("Select nombre, favorito from coleccion where nombre_user=@usuario order by nombre", connection);
             command.Parameters.AddWithValue("@usuario", UsuarioActivo);
 
             mostrarColecciones();
