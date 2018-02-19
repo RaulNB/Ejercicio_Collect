@@ -27,8 +27,16 @@ namespace ProyectoFinalDint
         /// </summary>
         private void elementVerColeccion_Click(Object sender, EventArgs e)
         {
-            ControlElemento.Elemento buttonClicked = sender as ControlElemento.Elemento;
-            ColeccionActiva = buttonClicked.Name;
+            try
+            {
+                ControlElemento.Elemento buttonClicked = sender as ControlElemento.Elemento;
+                ColeccionActiva = buttonClicked.Name;
+            }
+            catch (NullReferenceException)
+            {
+               Label buttonClicked = sender as Label;
+                ColeccionActiva = buttonClicked.Text;
+            }
             
             limpiarElementos();
 
@@ -52,13 +60,23 @@ namespace ProyectoFinalDint
         /// </summary>
         private void elementVerElemento_Click(Object sender, EventArgs e)
         {
-            ControlElemento.Elemento buttonClicked = sender as ControlElemento.Elemento;
+            string buttonClicked;
+            try
+            {
+                ControlElemento.Elemento elemento = sender as ControlElemento.Elemento;
+                buttonClicked = elemento.Name;
+            }
+            catch (NullReferenceException)
+            {
+                Label label = sender as Label;
+                buttonClicked = label.Text;
+            }
             FormVerElemento form = new FormVerElemento();
 
             connection.Open();
 
             command = new MySqlCommand("Select nombre, descripcion, imagen from elementos where nombre=@nombre and nombre_col = @nombre_col and nombre_user = @nombre_user", connection);
-            command.Parameters.AddWithValue("@nombre", buttonClicked.Name);
+            command.Parameters.AddWithValue("@nombre", buttonClicked);
             command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
             command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
             reader = command.ExecuteReader();
@@ -137,9 +155,6 @@ namespace ProyectoFinalDint
         /// </summary>
         private void linkLabelMisColecciones_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            flowLayoutPanelColecciones.Visible = true;
-            flowLayoutPanelElementos.Visible = false;
-
             homeToolStripMenuItem_Click(sender, null);
         }
 
@@ -267,7 +282,7 @@ namespace ProyectoFinalDint
                 coleccion.Name = reader["nombre"].ToString();
                 coleccion.setNombre(reader["nombre"].ToString());
                 coleccion.Margin = new Padding(70, 10, 0, 60);
-                coleccion.Click += new EventHandler(elementVerColeccion_Click);
+                coleccion.setOnClick(elementVerColeccion_Click);
 
                 if(reader["favorito"].ToString() == "0")
                 {
@@ -278,8 +293,7 @@ namespace ProyectoFinalDint
                     coleccion.setFavorito(true);
                 }
 
-                coleccion.setButtonBorrarClick(buttonBorrar_Click) ;
-                coleccion.setButtonEditarClick(buttonEditar_Click);
+                coleccion.setButtonBorrarClick(buttonBorrarColeccion_Click) ;
                 coleccion.setButtonFavoritosClick(buttonFavoritos_Click);
 
                 flowLayoutPanelColecciones.Controls.Add(coleccion);
@@ -288,7 +302,7 @@ namespace ProyectoFinalDint
             connection.Close();
         }
 
-        private void buttonBorrar_Click(object sender, EventArgs e)
+        private void buttonBorrarColeccion_Click(object sender, EventArgs e)
         {
             Button buttonClicked = sender as Button;
 
@@ -300,12 +314,7 @@ namespace ProyectoFinalDint
             delete.ExecuteNonQuery();
             connection.Close();
 
-            homeToolStripMenuItem_Click(sender, null);
-        }
-
-        private void buttonEditar_Click(object sender, EventArgs e)
-        {
-
+            linkLabelColecciones_Click(sender, null);
         }
 
         private void buttonFavoritos_Click(object sender, EventArgs e)
@@ -337,7 +346,7 @@ namespace ProyectoFinalDint
             favorito.ExecuteNonQuery();
             connection.Close();
 
-            homeToolStripMenuItem_Click(sender, e);
+            linkLabelColecciones_Click(sender, e);
         }
 
         /// <summary>
@@ -357,13 +366,42 @@ namespace ProyectoFinalDint
                 elemento.Name = reader["nombre"].ToString();
                 elemento.setNombre(reader["nombre"].ToString());
                 elemento.Margin = new Padding(70, 10, 0, 60);
-                elemento.Click += new EventHandler(elementVerElemento_Click);
+
+                elemento.setOnClick(elementVerElemento_Click);
                 elemento.ocultarFavoritos();
+                elemento.setButtonBorrarClick(buttonBorrarElemento_Click);
+                elemento.setButtonEditarClick(buttonEditar_Click);
 
                 flowLayoutPanelElementos.Controls.Add(elemento);
             }
 
             connection.Close();
+        }
+
+        private void buttonBorrarElemento_Click(object sender, EventArgs e)
+        {
+            Button buttonClicked = sender as Button;
+
+            MySqlCommand delete = new MySqlCommand("Delete from elementos where nombre_user = @nombre_user and nombre = @nombre and nombre_col = @nombre_col", connection);
+            delete.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+            delete.Parameters.AddWithValue("@nombre", buttonClicked.Name);
+            delete.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
+
+            connection.Open();
+            delete.ExecuteNonQuery();
+            connection.Close();
+
+            command = new MySqlCommand("Select nombre from elementos where nombre_user = @nombre_user and nombre_col = @nombre_col order by nombre", connection);
+            command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+            command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
+
+            mostrarElementos();
+        }
+
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -471,15 +509,7 @@ namespace ProyectoFinalDint
             mostrarColecciones();
         }
 
-        private void textBoxNombreUser_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                iniciarSesion(textBoxNombreUser.Text, textBoxContrasenaUser.Text);
-            }
-        }
-
-        private void textBoxContrasenaUser_KeyDown(object sender, KeyEventArgs e)
+        private void textBoxUser_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

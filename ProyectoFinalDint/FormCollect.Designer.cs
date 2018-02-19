@@ -363,7 +363,7 @@
             this.textBoxContrasenaUser.Size = new System.Drawing.Size(274, 20);
             this.textBoxContrasenaUser.TabIndex = 4;
             this.textBoxContrasenaUser.UseSystemPasswordChar = true;
-            this.textBoxContrasenaUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxContrasenaUser_KeyDown);
+            this.textBoxContrasenaUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUser_KeyDown);
             // 
             // labelInicioSesion
             // 
@@ -400,7 +400,7 @@
             this.textBoxNombreUser.Name = "textBoxNombreUser";
             this.textBoxNombreUser.Size = new System.Drawing.Size(274, 20);
             this.textBoxNombreUser.TabIndex = 2;
-            this.textBoxNombreUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxNombreUser_KeyDown);
+            this.textBoxNombreUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUser_KeyDown);
             // 
             // buttonInicioSesion
             // 
