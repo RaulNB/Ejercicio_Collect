@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,6 +62,12 @@
     <Compile Include="FormCollect.Designer.cs">
       <DependentUpon>FormCollect.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditarElemento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarElemento.Designer.cs">
+      <DependentUpon>FormEditarElemento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNuevaColeccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +96,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCollect.resx">
       <DependentUpon>FormCollect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarElemento.resx">
+      <DependentUpon>FormEditarElemento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNuevaColeccion.resx">
       <DependentUpon>FormNuevaColeccion.cs</DependentUpon>

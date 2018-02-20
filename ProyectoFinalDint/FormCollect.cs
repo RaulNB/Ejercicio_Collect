@@ -401,7 +401,25 @@ namespace ProyectoFinalDint
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
+            Button buttonClicked = sender as Button;
+            FormEditarElemento form = new FormEditarElemento(connection);
 
+            connection.Open();
+
+            command = new MySqlCommand("Select descripcion from elementos where nombre=@nombre and nombre_col = @nombre_col and nombre_user = @nombre_user", connection);
+            command.Parameters.AddWithValue("@nombre", buttonClicked.Name);
+            command.Parameters.AddWithValue("@nombre_col", ColeccionActiva);
+            command.Parameters.AddWithValue("@nombre_user", UsuarioActivo);
+
+            reader = command.ExecuteReader();
+            reader.Read();
+
+            form.Nombre = buttonClicked.Name;
+            form.Descripcion = reader["descripcion"].ToString();
+
+            connection.Close();
+
+            form.ShowDialog();
         }
 
         /// <summary>

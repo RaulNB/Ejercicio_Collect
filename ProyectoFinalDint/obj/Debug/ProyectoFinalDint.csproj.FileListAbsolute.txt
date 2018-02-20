@@ -20,3 +20,4 @@ C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\Contr
 C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.FormRegistro.resources
 C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\ctlCuteButton.dll
 C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\bin\Debug\ctlCuteButton.pdb
+C:\Users\Alumno\source\repos\ProyectoFinalDint\ProyectoFinalDint\obj\Debug\ProyectoFinalDint.FormEditarElemento.resources
