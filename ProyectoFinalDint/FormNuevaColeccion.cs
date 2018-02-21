@@ -7,9 +7,21 @@ namespace ProyectoFinalDint
     public partial class FormNuevaColeccion : Form
     {
         private MySqlConnection connection;
+
+        /// <summary>
+        /// Nombre de la colección
+        /// </summary>
         public string Nombre { get; set; }
+
+        /// <summary>
+        /// Nombre del usuario que crea la colección
+        /// </summary>
         public string NombreUser { get; set; }
 
+        /// <summary>
+        /// Recoge la conexión y inicializa los componentes
+        /// </summary>
+        /// <param name="connection">Conexión a la base de datos</param>
         public FormNuevaColeccion(MySqlConnection connection)
         {
             this.connection = connection;
@@ -17,6 +29,9 @@ namespace ProyectoFinalDint
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Permite la inserción de un elemento
+        /// </summary>
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             Nombre = textBoxNombre.Text;
@@ -52,6 +67,17 @@ namespace ProyectoFinalDint
             if (InsercionCorrecta == true)
             {
                 DialogResult = DialogResult.OK;
+            }
+        }
+
+        /// <summary>
+        /// Permite la inserción de un elemento al pulsar enter
+        /// </summary>
+        private void textBoxNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                buttonAceptar_Click(sender, null);
             }
         }
     }

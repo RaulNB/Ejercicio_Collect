@@ -198,7 +198,7 @@
             this.flowLayoutPanelColecciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelColecciones.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelColecciones.Name = "flowLayoutPanelColecciones";
-            this.flowLayoutPanelColecciones.Size = new System.Drawing.Size(866, 350);
+            this.flowLayoutPanelColecciones.Size = new System.Drawing.Size(842, 350);
             this.flowLayoutPanelColecciones.TabIndex = 4;
             this.flowLayoutPanelColecciones.Visible = false;
             // 
@@ -268,12 +268,14 @@
             this.flowLayoutPanelElementos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelElementos.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelElementos.Name = "flowLayoutPanelElementos";
-            this.flowLayoutPanelElementos.Size = new System.Drawing.Size(866, 350);
+            this.flowLayoutPanelElementos.Size = new System.Drawing.Size(842, 350);
             this.flowLayoutPanelElementos.TabIndex = 4;
             this.flowLayoutPanelElementos.Visible = false;
             // 
             // tableLayoutPanelElementos
             // 
+            this.tableLayoutPanelElementos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelElementos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanelElementos.ColumnCount = 2;
             this.tableLayoutPanelElementos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelElementos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 706F));
@@ -284,7 +286,7 @@
             this.tableLayoutPanelElementos.Name = "tableLayoutPanelElementos";
             this.tableLayoutPanelElementos.RowCount = 1;
             this.tableLayoutPanelElementos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelElementos.Size = new System.Drawing.Size(860, 42);
+            this.tableLayoutPanelElementos.Size = new System.Drawing.Size(836, 42);
             this.tableLayoutPanelElementos.TabIndex = 8;
             // 
             // labelTituloColeccion
@@ -294,7 +296,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTituloColeccion.AutoSize = true;
             this.labelTituloColeccion.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTituloColeccion.Location = new System.Drawing.Point(157, 0);
+            this.labelTituloColeccion.Location = new System.Drawing.Point(133, 0);
             this.labelTituloColeccion.Name = "labelTituloColeccion";
             this.labelTituloColeccion.Size = new System.Drawing.Size(700, 42);
             this.labelTituloColeccion.TabIndex = 7;
@@ -324,7 +326,7 @@
             this.panelInicioSesion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInicioSesion.Location = new System.Drawing.Point(0, 0);
             this.panelInicioSesion.Name = "panelInicioSesion";
-            this.panelInicioSesion.Size = new System.Drawing.Size(866, 350);
+            this.panelInicioSesion.Size = new System.Drawing.Size(842, 350);
             this.panelInicioSesion.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -476,7 +478,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(866, 350);
+            this.ClientSize = new System.Drawing.Size(842, 350);
             this.Controls.Add(this.flowLayoutPanelElementos);
             this.Controls.Add(this.flowLayoutPanelColecciones);
             this.Controls.Add(this.menuStrip);

@@ -1,14 +1,27 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System;
 
 namespace ProyectoFinalDint
 {
     public partial class FormRegistro : Form
     {
         private MySqlConnection connection;
+
+        /// <summary>
+        /// Nombre del usuario
+        /// </summary>
         public string Nombre { get; set; }
+
+        /// <summary>
+        /// Contraseña del usuario
+        /// </summary>
         public string Contrasena { get; set; }
 
+        /// <summary>
+        /// Recoge la conexión y inicializa los componentes
+        /// </summary>
+        /// <param name="connection">Conexión a la base de datos</param>
         public FormRegistro(MySqlConnection connection)
         {
             this.connection = connection;
@@ -16,7 +29,10 @@ namespace ProyectoFinalDint
             InitializeComponent();
         }
 
-        private void buttonRegistrar_Click(object sender, System.EventArgs e)
+        /// <summary>
+        /// Permite el registro de un usuario
+        /// </summary>
+        private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             bool InsercionCorrecta = false;
 
@@ -60,6 +76,17 @@ namespace ProyectoFinalDint
             if (InsercionCorrecta == true)
             {
                 DialogResult = DialogResult.OK;
+            }
+        }
+
+        /// <summary>
+        /// Permite el registro de un usuario al pulsar enter
+        /// </summary>
+        private void keyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonRegistrar_Click(sender, null);
             }
         }
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro));
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
@@ -56,6 +57,7 @@
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(222, 20);
             this.textBoxNombre.TabIndex = 1;
+            this.textBoxNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // textBoxEmail
             // 
@@ -64,6 +66,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(222, 20);
             this.textBoxEmail.TabIndex = 3;
+            this.textBoxEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // labelEmail
             // 
@@ -82,6 +85,7 @@
             this.textBoxContrasena.Size = new System.Drawing.Size(222, 20);
             this.textBoxContrasena.TabIndex = 5;
             this.textBoxContrasena.UseSystemPasswordChar = true;
+            this.textBoxContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // labelContrasena
             // 
@@ -100,6 +104,7 @@
             this.textBoxRepetirContrasena.Size = new System.Drawing.Size(222, 20);
             this.textBoxRepetirContrasena.TabIndex = 7;
             this.textBoxRepetirContrasena.UseSystemPasswordChar = true;
+            this.textBoxRepetirContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // labelRepetirContrasena
             // 
@@ -145,6 +150,7 @@
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.labelNombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(266, 300);
             this.MinimumSize = new System.Drawing.Size(266, 300);
             this.Name = "FormRegistro";

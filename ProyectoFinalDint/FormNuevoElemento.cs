@@ -8,12 +8,36 @@ namespace ProyectoFinalDint
     public partial class FormNuevoElemento : Form
     {
         private MySqlConnection connection;
+
+        /// <summary>
+        /// Nombre del elemento
+        /// </summary>
         public string Nombre { get; set; }
+
+        /// <summary>
+        /// Descripción del elemento
+        /// </summary>
         public string Descripcion { get; set; }
+
+        /// <summary>
+        /// Imagen del elemento en bytes
+        /// </summary>
         public byte[] ImgBytes { get; set; }
+
+        /// <summary>
+        /// Nombre de la colección a la que pertenece
+        /// </summary>
         public string NombreCol { get; set; }
+
+        /// <summary>
+        /// Nombre del usuario que crea el elemento
+        /// </summary>
         public string NombreUser { get; set; }
 
+        /// <summary>
+        /// Recoge la conexión y inicializa los componentes
+        /// </summary>
+        /// <param name="connection">Conexión a la base de datos</param>
         public FormNuevoElemento(MySqlConnection connection)
         {
             this.connection = connection;
@@ -21,6 +45,9 @@ namespace ProyectoFinalDint
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Permite añadir una imagen al elemento
+        /// </summary>
         private void buttonImg_Click(object sender, EventArgs e)
         {
             if (buttonImg.Text == "Eliminar")
@@ -41,6 +68,9 @@ namespace ProyectoFinalDint
             }
         }
 
+        /// <summary>
+        /// Permite añadir un elemento
+        /// </summary>
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             Nombre = textBoxNombre.Text;

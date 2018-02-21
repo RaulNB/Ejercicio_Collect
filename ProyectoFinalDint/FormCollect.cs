@@ -7,7 +7,14 @@ namespace ProyectoFinalDint
 {
     public partial class FormCollect : Form
     {
+        /// <summary>
+        /// Guarda la última colección seleccionada
+        /// </summary>
         public string ColeccionActiva { get; set; }
+
+        /// <summary>
+        /// Guarda el último usuario que ha iniciado sesión
+        /// </summary>
         public string UsuarioActivo { get; set; }
 
         MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
@@ -15,6 +22,9 @@ namespace ProyectoFinalDint
         MySqlCommand command = null;
         MySqlDataReader reader = null;
 
+        /// <summary>
+        /// Conectar a la base de datos y mostrar los componentes
+        /// </summary>
         public FormCollect()
         {
             conectarBBDD();
@@ -100,7 +110,7 @@ namespace ProyectoFinalDint
         }
 
         /// <summary>
-        /// Añade una coleccion desde un form externo y muestra las colecciones
+        /// Añade una coleccion desde un form externo y entra en ella
         /// </summary>
         private void buttonAnadirColeccion_Click(object sender, EventArgs e)
         {
@@ -118,7 +128,7 @@ namespace ProyectoFinalDint
         }
 
         /// <summary>
-        /// Añade una coleccion desde un form externo y muestra las coleccion llamando al evento buttonElementAnadirColeccion_Click
+        /// Añade una coleccion desde un form externo y entra en ella
         /// </summary>
         private void crearColecciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -127,7 +137,7 @@ namespace ProyectoFinalDint
         }
 
         /// <summary>
-        /// Añade un elemento a una colección desde un form externo y muestra los elementos de esa colección MODIFICAR
+        /// Añade un elemento a una colección desde un form externo y muestra los elementos de esa colección
         /// </summary>
         private void buttonAnadirElemento_Click(object sender, EventArgs e)
         {
@@ -151,7 +161,7 @@ namespace ProyectoFinalDint
         }
 
         /// <summary>
-        /// Oculta los elementos y muestra las colecciones
+        /// Muestra todas las colecciones del usuario
         /// </summary>
         private void linkLabelMisColecciones_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -205,7 +215,7 @@ namespace ProyectoFinalDint
         }
 
         /// <summary>
-        /// Muestra las colecciones cuyo nombre incluya la cadena escrita en el TextBoxBusqueda
+        /// Muestra las colecciones o elementos cuyo nombre incluya la cadena escrita en la barra de búsqueda
         /// </summary>
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -241,6 +251,9 @@ namespace ProyectoFinalDint
             toolStripTextBoxBusqueda.Text = "";
         }
 
+        /// <summary>
+        /// Muestra todos los elementos de la colección y cambia el link del panel de elementos
+        /// </summary>
         private void linkLabelMisColecciones_TodosElementos(Object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabelMisColecciones.Text = "Volver a mis colecciones";
@@ -255,7 +268,7 @@ namespace ProyectoFinalDint
         }
 
         /// <summary>
-        /// Muestra las colecciones cuyo nombre incluya la cadena escrita en el TextBoxBusqueda llamando al evento buscarToolStripMenuItem_Click
+        /// Muestra las colecciones cuyo nombre incluya la cadena escrita en la barra de búsqueda al pulsar enter
         /// </summary>
         private void toolStripTextBoxBusqueda_KeyDown(object sender, KeyEventArgs e)
         {
@@ -302,6 +315,9 @@ namespace ProyectoFinalDint
             connection.Close();
         }
 
+        /// <summary>
+        /// Borra la colección
+        /// </summary>
         private void buttonBorrarColeccion_Click(object sender, EventArgs e)
         {
             Button buttonClicked = sender as Button;
@@ -317,6 +333,9 @@ namespace ProyectoFinalDint
             linkLabelColecciones_Click(sender, null);
         }
 
+        /// <summary>
+        /// Añade una colección a favoritos
+        /// </summary>
         private void buttonFavoritos_Click(object sender, EventArgs e)
         {
             Button buttonClicked = sender as Button;
@@ -378,6 +397,9 @@ namespace ProyectoFinalDint
             connection.Close();
         }
 
+        /// <summary>
+        /// Borra el elemento
+        /// </summary>
         private void buttonBorrarElemento_Click(object sender, EventArgs e)
         {
             Button buttonClicked = sender as Button;
@@ -398,7 +420,9 @@ namespace ProyectoFinalDint
             mostrarElementos();
         }
 
-
+        /// <summary>
+        /// Permite editar los datos de un elemento
+        /// </summary>
         private void buttonEditar_Click(object sender, EventArgs e)
         {
             Button buttonClicked = sender as Button;
@@ -423,7 +447,7 @@ namespace ProyectoFinalDint
         }
 
         /// <summary>
-        /// Muestra las colecciones disponibles llamando al evento FormCollect_Load
+        /// Muestra las colecciones disponibles
         /// </summary>
         private void linkLabelColecciones_Click(object sender, EventArgs e)
         {
@@ -465,6 +489,9 @@ namespace ProyectoFinalDint
             mostrarColecciones();
         }
 
+        /// <summary>
+        /// Registra a un usuario mediante un form externo y inicia su sesión
+        /// </summary>
         private void linkLabelRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormRegistro form = new FormRegistro(connection);
@@ -473,11 +500,19 @@ namespace ProyectoFinalDint
             iniciarSesion(form.Nombre, form.Contrasena);
         }
 
+        /// <summary>
+        /// Inicia sesión con el usuario y contraseña escritos
+        /// </summary>
         private void buttonInicioSesion_Click(object sender, EventArgs e)
         {
             iniciarSesion(textBoxNombreUser.Text, textBoxContrasenaUser.Text);
         }
 
+        /// <summary>
+        /// Permite el inicio de sesión
+        /// </summary>
+        /// <param name="nombre">Nombre del usuario</param>
+        /// <param name="contrasena">Contraseña del usuario</param>
         private void iniciarSesion (string nombre, string contrasena)
         {
             connection.Open();
@@ -505,6 +540,9 @@ namespace ProyectoFinalDint
             }
         }
 
+        /// <summary>
+        /// Cierra la session
+        /// </summary>
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainMenuStrip.Visible = false;
@@ -512,6 +550,9 @@ namespace ProyectoFinalDint
             flowLayoutPanelColecciones.Visible = false;
         }
 
+        /// <summary>
+        /// Muestra todas las colecciones del usuario activo
+        /// </summary>
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             flowLayoutPanelColecciones.Visible = true;
@@ -527,6 +568,9 @@ namespace ProyectoFinalDint
             mostrarColecciones();
         }
 
+        /// <summary>
+        /// Permite el inicio de sesión al pulsar enter
+        /// </summary>
         private void textBoxUser_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

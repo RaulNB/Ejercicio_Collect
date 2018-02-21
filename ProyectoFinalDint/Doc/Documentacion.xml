@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProyectoFinalDint</name>
+    </assembly>
+    <members>
+        <member name="P:ProyectoFinalDint.FormCollect.ColeccionActiva">
+            <summary>
+            Guarda la última colección seleccionada
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormCollect.UsuarioActivo">
+            <summary>
+            Guarda el último usuario que ha iniciado sesión
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.#ctor">
+            <summary>
+            Conectar a la base de datos y mostrar los componentes
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.elementVerColeccion_Click(System.Object,System.EventArgs)">
+            <summary>
+            Muestra los elementos de la colección seleccionada
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.elementVerElemento_Click(System.Object,System.EventArgs)">
+            <summary>
+            Muestra los datos del elemento seleccionado
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonAnadirColeccion_Click(System.Object,System.EventArgs)">
+            <summary>
+            Añade una coleccion desde un form externo y entra en ella
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.crearColecciónToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Añade una coleccion desde un form externo y entra en ella
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonAnadirElemento_Click(System.Object,System.EventArgs)">
+            <summary>
+            Añade un elemento a una colección desde un form externo y muestra los elementos de esa colección
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.linkLabelMisColecciones_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Muestra todas las colecciones del usuario
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.conectarBBDD">
+            <summary>
+            Realiza la conexión con la base de datos
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.limpiarElementos">
+            <summary>
+            Vacía la pantalla de elementos
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.limpiarColecciones">
+            <summary>
+            Vacía la pantalla de colecciones
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buscarToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Muestra las colecciones o elementos cuyo nombre incluya la cadena escrita en la barra de búsqueda
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.linkLabelMisColecciones_TodosElementos(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Muestra todos los elementos de la colección y cambia el link del panel de elementos
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.toolStripTextBoxBusqueda_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Muestra las colecciones cuyo nombre incluya la cadena escrita en la barra de búsqueda al pulsar enter
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.mostrarColecciones">
+            <summary>
+            Muestra las colecciones a partir de una query que se ha de definir necesariamente antes de llamar a esta función
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonBorrarColeccion_Click(System.Object,System.EventArgs)">
+            <summary>
+            Borra la colección
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonFavoritos_Click(System.Object,System.EventArgs)">
+            <summary>
+            Añade una colección a favoritos
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.mostrarElementos">
+            <summary>
+            Muestra los elementos de una colección a partir de una query definida antes de llamar a la función
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonBorrarElemento_Click(System.Object,System.EventArgs)">
+            <summary>
+            Borra el elemento
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonEditar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite editar los datos de un elemento
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.linkLabelColecciones_Click(System.Object,System.EventArgs)">
+            <summary>
+            Muestra las colecciones disponibles
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.coleccionesFavoritasToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Muestra las colecciones marcadas como favoritas
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.coleccionesRecientesToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Muestra las colecciones creadas en el último mes
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.linkLabelRegistro_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Registra a un usuario mediante un form externo y inicia su sesión
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonInicioSesion_Click(System.Object,System.EventArgs)">
+            <summary>
+            Inicia sesión con el usuario y contraseña escritos
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.iniciarSesion(System.String,System.String)">
+            <summary>
+            Permite el inicio de sesión
+            </summary>
+            <param name="nombre">Nombre del usuario</param>
+            <param name="contrasena">Contraseña del usuario</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.cerrarSesiónToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cierra la session
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.homeToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Muestra todas las colecciones del usuario activo
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.textBoxUser_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Permite el inicio de sesión al pulsar enter
+            </summary>
+        </member>
+        <member name="F:ProyectoFinalDint.FormCollect.components">
+            <summary>
+            Variable del diseñador necesaria.
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.Dispose(System.Boolean)">
+            <summary>
+            Limpiar los recursos que se estén usando.
+            </summary>
+            <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.InitializeComponent">
+            <summary>
+            Método necesario para admitir el Diseñador. No se puede modificar
+            el contenido de este método con el editor de código.
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormEditarElemento.Nombre">
+            <summary>
+            Nombre del elemento
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormEditarElemento.Descripcion">
+            <summary>
+            Descripción del elemento
+            </summary>
+        </member>
+        <member name="F:ProyectoFinalDint.FormEditarElemento.ImgBytes">
+            <summary>
+            Imagen del elemento en bytes
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormEditarElemento.#ctor(MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Recoge la conexión y inicializa los componentes
+            </summary>
+            <param name="connection">Conexión a la base de datos</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormEditarElemento.buttonImagen_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite cambiar la imagen de un elemento
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormEditarElemento.buttonAceptar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite la edición de la descripción y la imagen
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormEditarElemento.FormEditarElemento_Load(System.Object,System.EventArgs)">
+            <summary>
+            Muestra el nombre y la descripción del elemento
+            </summary>
+        </member>
+        <member name="F:ProyectoFinalDint.FormEditarElemento.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormEditarElemento.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormEditarElemento.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormNuevaColeccion.Nombre">
+            <summary>
+            Nombre de la colección
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormNuevaColeccion.NombreUser">
+            <summary>
+            Nombre del usuario que crea la colección
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevaColeccion.#ctor(MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Recoge la conexión y inicializa los componentes
+            </summary>
+            <param name="connection">Conexión a la base de datos</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevaColeccion.buttonAceptar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite la inserción de un elemento
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevaColeccion.textBoxNombre_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Permite la inserción de un elemento al pulsar enter
+            </summary>
+        </member>
+        <member name="F:ProyectoFinalDint.FormNuevaColeccion.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevaColeccion.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevaColeccion.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormNuevoElemento.Nombre">
+            <summary>
+            Nombre del elemento
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormNuevoElemento.Descripcion">
+            <summary>
+            Descripción del elemento
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormNuevoElemento.ImgBytes">
+            <summary>
+            Imagen del elemento en bytes
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormNuevoElemento.NombreCol">
+            <summary>
+            Nombre de la colección a la que pertenece
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormNuevoElemento.NombreUser">
+            <summary>
+            Nombre del usuario que crea el elemento
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevoElemento.#ctor(MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Recoge la conexión y inicializa los componentes
+            </summary>
+            <param name="connection">Conexión a la base de datos</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevoElemento.buttonImg_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite añadir una imagen al elemento
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevoElemento.buttonAceptar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite añadir un elemento
+            </summary>
+        </member>
+        <member name="F:ProyectoFinalDint.FormNuevoElemento.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevoElemento.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormNuevoElemento.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormRegistro.Nombre">
+            <summary>
+            Nombre del usuario
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormRegistro.Contrasena">
+            <summary>
+            Contraseña del usuario
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormRegistro.#ctor(MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Recoge la conexión y inicializa los componentes
+            </summary>
+            <param name="connection">Conexión a la base de datos</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormRegistro.buttonRegistrar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite el registro de un usuario
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormRegistro.keyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Permite el registro de un usuario al pulsar enter
+            </summary>
+        </member>
+        <member name="F:ProyectoFinalDint.FormRegistro.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormRegistro.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormRegistro.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormVerElemento.ImgBytes">
+            <summary>
+            Imagen del elemento en bytes
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.FormVerElemento.Descripcion">
+            <summary>
+            Descripción del elemento
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormVerElemento.#ctor">
+            <summary>
+            Inicializa los componentes
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormVerElemento.FormVerElemento_Load(System.Object,System.EventArgs)">
+            <summary>
+            Muestra los datos del elemento seleccionado
+            </summary>
+        </member>
+        <member name="F:ProyectoFinalDint.FormVerElemento.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormVerElemento.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormVerElemento.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.Program.Main">
+            <summary>
+            Punto de entrada principal para la aplicación.
+            </summary>
+        </member>
+        <member name="T:ProyectoFinalDint.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:ProyectoFinalDint.Properties.Resources.Culture">
+            <summary>
+              Invalida la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos usando esta clase de recursos fuertemente tipados.
+            </summary>
+        </member>
+    </members>
+</doc>

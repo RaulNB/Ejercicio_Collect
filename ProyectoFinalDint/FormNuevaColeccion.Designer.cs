@@ -51,6 +51,7 @@
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(209, 20);
             this.textBoxNombre.TabIndex = 1;
+            this.textBoxNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxNombre_KeyDown);
             // 
             // buttonAceptar
             // 

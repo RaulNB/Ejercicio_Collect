@@ -7,16 +7,35 @@ namespace ProyectoFinalDint
     public partial class FormEditarElemento : Form
     {
         MySqlConnection connection;
+        
+        /// <summary>
+        /// Nombre del elemento
+        /// </summary>
         public string Nombre { get; set; }
+
+        /// <summary>
+        /// Descripción del elemento
+        /// </summary>
         public string Descripcion { get; set; }
+
+        /// <summary>
+        /// Imagen del elemento en bytes
+        /// </summary>
         public byte[] ImgBytes;
 
+        /// <summary>
+        /// Recoge la conexión y inicializa los componentes
+        /// </summary>
+        /// <param name="connection">Conexión a la base de datos</param>
         public FormEditarElemento(MySqlConnection connection)
         {
             this.connection = connection;
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Permite cambiar la imagen de un elemento
+        /// </summary>
         private void buttonImagen_Click(object sender, System.EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
@@ -32,6 +51,9 @@ namespace ProyectoFinalDint
             }
         }
 
+        /// <summary>
+        /// Permite la edición de la descripción y la imagen
+        /// </summary>
         private void buttonAceptar_Click(object sender, System.EventArgs e)
         {
             string update = "Update elementos set descripcion = @descripcion where nombre = @nombre";
@@ -58,6 +80,9 @@ namespace ProyectoFinalDint
             DialogResult = DialogResult.OK;
         }
 
+        /// <summary>
+        /// Muestra el nombre y la descripción del elemento
+        /// </summary>
         private void FormEditarElemento_Load(object sender, System.EventArgs e)
         {
             labelNombre.Text = Nombre;
