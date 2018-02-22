@@ -19,15 +19,44 @@
             Conectar a la base de datos y mostrar los componentes
             </summary>
         </member>
-        <member name="M:ProyectoFinalDint.FormCollect.elementVerColeccion_Click(System.Object,System.EventArgs)">
+        <member name="M:ProyectoFinalDint.FormCollect.conectarBBDD">
             <summary>
-            Muestra los elementos de la colección seleccionada
+            Realiza la conexión con la base de datos
             </summary>
         </member>
-        <member name="M:ProyectoFinalDint.FormCollect.elementVerElemento_Click(System.Object,System.EventArgs)">
+        <member name="M:ProyectoFinalDint.FormCollect.buttonInicioSesion_Click(System.Object,System.EventArgs)">
             <summary>
-            Muestra los datos del elemento seleccionado
+            Inicia sesión con el usuario y contraseña escritos
             </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.textBoxUser_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Permite el inicio de sesión al pulsar enter
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.iniciarSesion(System.String,System.String)">
+            <summary>
+            Permite el inicio de sesión
+            </summary>
+            <param name="nombre">Nombre del usuario</param>
+            <param name="contrasena">Contraseña del usuario</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.linkLabelRegistro_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Registra a un usuario mediante un form externo y inicia su sesión
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.cerrarSesiónToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cierra la session
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.anadirColeccion(System.String,System.String)">
+            <summary>
+            Añade una colección al panel
+            </summary>
+            <param name="nombre">Nombre de la colección</param>
+            <param name="fav">0 si no es favorito o 1 si sí que lo es</param>
         </member>
         <member name="M:ProyectoFinalDint.FormCollect.buttonAnadirColeccion_Click(System.Object,System.EventArgs)">
             <summary>
@@ -39,49 +68,9 @@
             Añade una coleccion desde un form externo y entra en ella
             </summary>
         </member>
-        <member name="M:ProyectoFinalDint.FormCollect.buttonAnadirElemento_Click(System.Object,System.EventArgs)">
-            <summary>
-            Añade un elemento a una colección desde un form externo y muestra los elementos de esa colección
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.linkLabelMisColecciones_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
-            <summary>
-            Muestra todas las colecciones del usuario
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.conectarBBDD">
-            <summary>
-            Realiza la conexión con la base de datos
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.limpiarElementos">
-            <summary>
-            Vacía la pantalla de elementos
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.limpiarColecciones">
-            <summary>
-            Vacía la pantalla de colecciones
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.buscarToolStripMenuItem_Click(System.Object,System.EventArgs)">
-            <summary>
-            Muestra las colecciones o elementos cuyo nombre incluya la cadena escrita en la barra de búsqueda
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.linkLabelMisColecciones_TodosElementos(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
-            <summary>
-            Muestra todos los elementos de la colección y cambia el link del panel de elementos
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.toolStripTextBoxBusqueda_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
-            <summary>
-            Muestra las colecciones cuyo nombre incluya la cadena escrita en la barra de búsqueda al pulsar enter
-            </summary>
-        </member>
         <member name="M:ProyectoFinalDint.FormCollect.mostrarColecciones">
             <summary>
-            Muestra las colecciones a partir de una query que se ha de definir necesariamente antes de llamar a esta función
+            Muestra todas las colecciones del usuario activo
             </summary>
         </member>
         <member name="M:ProyectoFinalDint.FormCollect.buttonBorrarColeccion_Click(System.Object,System.EventArgs)">
@@ -92,21 +81,6 @@
         <member name="M:ProyectoFinalDint.FormCollect.buttonFavoritos_Click(System.Object,System.EventArgs)">
             <summary>
             Añade una colección a favoritos
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.mostrarElementos">
-            <summary>
-            Muestra los elementos de una colección a partir de una query definida antes de llamar a la función
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.buttonBorrarElemento_Click(System.Object,System.EventArgs)">
-            <summary>
-            Borra el elemento
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.buttonEditar_Click(System.Object,System.EventArgs)">
-            <summary>
-            Permite editar los datos de un elemento
             </summary>
         </member>
         <member name="M:ProyectoFinalDint.FormCollect.linkLabelColecciones_Click(System.Object,System.EventArgs)">
@@ -124,36 +98,71 @@
             Muestra las colecciones creadas en el último mes
             </summary>
         </member>
-        <member name="M:ProyectoFinalDint.FormCollect.linkLabelRegistro_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
-            <summary>
-            Registra a un usuario mediante un form externo y inicia su sesión
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.buttonInicioSesion_Click(System.Object,System.EventArgs)">
-            <summary>
-            Inicia sesión con el usuario y contraseña escritos
-            </summary>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.iniciarSesion(System.String,System.String)">
-            <summary>
-            Permite el inicio de sesión
-            </summary>
-            <param name="nombre">Nombre del usuario</param>
-            <param name="contrasena">Contraseña del usuario</param>
-        </member>
-        <member name="M:ProyectoFinalDint.FormCollect.cerrarSesiónToolStripMenuItem_Click(System.Object,System.EventArgs)">
-            <summary>
-            Cierra la session
-            </summary>
-        </member>
         <member name="M:ProyectoFinalDint.FormCollect.homeToolStripMenuItem_Click(System.Object,System.EventArgs)">
             <summary>
             Muestra todas las colecciones del usuario activo
             </summary>
         </member>
-        <member name="M:ProyectoFinalDint.FormCollect.textBoxUser_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+        <member name="M:ProyectoFinalDint.FormCollect.limpiarColecciones">
             <summary>
-            Permite el inicio de sesión al pulsar enter
+            Vacía la pantalla de colecciones
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.anadirElemento(System.String,System.Byte[])">
+            <summary>
+            Añade un elemento al panel
+            </summary>
+            <param name="nombre">Nombre del elemento</param>
+            <param name="ImgBytes">Imagen del elemento</param>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.mostrarElementos">
+            <summary>
+            Muestra los elementos de una colección
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.elementVerColeccion_Click(System.Object,System.EventArgs)">
+            <summary>
+            Muestra los elementos de la colección seleccionada
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.elementVerElemento_Click(System.Object,System.EventArgs)">
+            <summary>
+            Muestra los datos del elemento seleccionado
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonAnadirElemento_Click(System.Object,System.EventArgs)">
+            <summary>
+            Añade un elemento a una colección desde un form externo y muestra los elementos de esa colección
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.limpiarElementos">
+            <summary>
+            Vacía la pantalla de elementos
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.linkLabelElementos_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Muestra todos los elementos de la colección y cambia el link del panel de elementos
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonBorrarElemento_Click(System.Object,System.EventArgs)">
+            <summary>
+            Borra el elemento
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.buttonEditar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite editar los datos de un elemento**********MOSTRAR IMAGEN EN DISEÑO***********
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.linkLabelMisColecciones_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Muestra todas las colecciones del usuario
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormCollect.toolStripTextBoxBusqueda_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Muestra las colecciones o elementos cuyo nombre incluya la cadena escrita en la barra de búsqueda al escribir una letra
             </summary>
         </member>
         <member name="F:ProyectoFinalDint.FormCollect.components">
@@ -380,14 +389,24 @@
             Descripción del elemento
             </summary>
         </member>
-        <member name="M:ProyectoFinalDint.FormVerElemento.#ctor">
+        <member name="M:ProyectoFinalDint.FormVerElemento.#ctor(MySql.Data.MySqlClient.MySqlConnection)">
             <summary>
-            Inicializa los componentes
+            Inicializa los componentes y recoge la conexión
             </summary>
         </member>
         <member name="M:ProyectoFinalDint.FormVerElemento.FormVerElemento_Load(System.Object,System.EventArgs)">
             <summary>
             Muestra los datos del elemento seleccionado
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormVerElemento.buttonModificar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite modificar el elemento mostrado
+            </summary>
+        </member>
+        <member name="M:ProyectoFinalDint.FormVerElemento.buttonBorrar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Permite borrar el elemento mostrado
             </summary>
         </member>
         <member name="F:ProyectoFinalDint.FormVerElemento.components">

@@ -95,7 +95,7 @@ namespace ProyectoFinalDint
             {
                 connection.Open();
 
-                string insert = "Insert into elementos values(@nombre, @imagen, @descripcion, @nombre_col, @nombre_user)";
+                string insert = "Insert into elementos(nombre, imagen,  descripcion, nombre_col, nombre_user) values(@nombre, @imagen, @descripcion, @nombre_col, @nombre_user)";
                 MySqlCommand command = new MySqlCommand(insert, connection);
                 command.Parameters.AddWithValue("@nombre", Nombre);
                 command.Parameters.AddWithValue("@imagen", ImgBytes);

@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -30,6 +31,7 @@ namespace ProyectoFinalDint
         public FormEditarElemento(MySqlConnection connection)
         {
             this.connection = connection;
+
             InitializeComponent();
         }
 
@@ -43,10 +45,10 @@ namespace ProyectoFinalDint
             openFile.Filter = "Image Files (*.bmp, *.jpg, *.png)|*.bmp;*.jpg;*.png";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                labelImg.Text = openFile.FileName;
                 FileStream fs = new FileStream(openFile.FileName, FileMode.Open);
                 BinaryReader reader = new BinaryReader(fs);
                 ImgBytes = reader.ReadBytes((int)fs.Length);
+                panelImagen.BackgroundImage = Image.FromStream(fs);
                 reader.Close();
             }
         }
@@ -61,11 +63,13 @@ namespace ProyectoFinalDint
             command.Parameters.AddWithValue("@nombre", Nombre);
             command.Parameters.AddWithValue("@descripcion", richTextBoxDescripcion.Text);
 
+            Descripcion = richTextBoxDescripcion.Text;
+
             connection.Open();
 
             command.ExecuteNonQuery();
 
-            if (labelImg.Text != "Cambiar imagen...")
+            if (ImgBytes != null)
             {
                 update = "Update elementos set imagen = @imagen where nombre = @nombre";
                 command = new MySqlCommand(update, connection);
@@ -85,7 +89,14 @@ namespace ProyectoFinalDint
         /// </summary>
         private void FormEditarElemento_Load(object sender, System.EventArgs e)
         {
+            if (ImgBytes != null)
+            {
+                MemoryStream stream = new MemoryStream(ImgBytes);
+                panelImagen.BackgroundImage = Image.FromStream(stream);
+                ImgBytes = null;
+            }
             labelNombre.Text = Nombre;
+            
 
             richTextBoxDescripcion.Text = Descripcion;
         }

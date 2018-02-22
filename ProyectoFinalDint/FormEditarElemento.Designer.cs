@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditarElemento));
             this.labelNombre = new System.Windows.Forms.Label();
             this.richTextBoxDescripcion = new System.Windows.Forms.RichTextBox();
-            this.labelImg = new System.Windows.Forms.Label();
             this.buttonImagen = new System.Windows.Forms.Button();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.panelImagen = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // labelNombre
@@ -56,21 +56,13 @@
             this.richTextBoxDescripcion.TabIndex = 9;
             this.richTextBoxDescripcion.Text = "";
             // 
-            // labelImg
-            // 
-            this.labelImg.Location = new System.Drawing.Point(9, 188);
-            this.labelImg.Name = "labelImg";
-            this.labelImg.Size = new System.Drawing.Size(129, 18);
-            this.labelImg.TabIndex = 10;
-            this.labelImg.Text = "Cambiar imagen...";
-            // 
             // buttonImagen
             // 
-            this.buttonImagen.Location = new System.Drawing.Point(147, 183);
+            this.buttonImagen.Location = new System.Drawing.Point(146, 156);
             this.buttonImagen.Name = "buttonImagen";
-            this.buttonImagen.Size = new System.Drawing.Size(75, 23);
+            this.buttonImagen.Size = new System.Drawing.Size(75, 50);
             this.buttonImagen.TabIndex = 11;
-            this.buttonImagen.Text = "Buscar...";
+            this.buttonImagen.Text = "Cambiar Imagen";
             this.buttonImagen.UseVisualStyleBackColor = true;
             this.buttonImagen.Click += new System.EventHandler(this.buttonImagen_Click);
             // 
@@ -94,15 +86,24 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
+            // panelImagen
+            // 
+            this.panelImagen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelImagen.BackgroundImage")));
+            this.panelImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelImagen.Location = new System.Drawing.Point(17, 156);
+            this.panelImagen.Name = "panelImagen";
+            this.panelImagen.Size = new System.Drawing.Size(123, 50);
+            this.panelImagen.TabIndex = 14;
+            // 
             // FormEditarElemento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(234, 262);
+            this.Controls.Add(this.panelImagen);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.buttonImagen);
-            this.Controls.Add(this.labelImg);
             this.Controls.Add(this.richTextBoxDescripcion);
             this.Controls.Add(this.labelNombre);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -119,9 +120,9 @@
 
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.RichTextBox richTextBoxDescripcion;
-        private System.Windows.Forms.Label labelImg;
         private System.Windows.Forms.Button buttonImagen;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Panel panelImagen;
     }
 }

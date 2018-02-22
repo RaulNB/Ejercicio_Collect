@@ -38,7 +38,6 @@
             this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBoxBusqueda = new System.Windows.Forms.ToolStripTextBox();
             this.flowLayoutPanelColecciones = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabelColecciones = new System.Windows.Forms.LinkLabel();
@@ -46,6 +45,7 @@
             this.buttonAnadirColeccion = new System.Windows.Forms.Button();
             this.linkLabelMisColecciones = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanelElementos = new System.Windows.Forms.FlowLayoutPanel();
+            this.linkLabelElementos = new System.Windows.Forms.LinkLabel();
             this.labelTituloColeccion = new System.Windows.Forms.Label();
             this.buttonAnadirElemento = new System.Windows.Forms.Button();
             this.panelInicioSesion = new System.Windows.Forms.Panel();
@@ -73,7 +73,6 @@
             this.menuToolStripMenuItem,
             this.perfilToolStripMenuItem,
             this.homeToolStripMenuItem,
-            this.buscarToolStripMenuItem,
             this.toolStripTextBoxBusqueda});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -149,26 +148,17 @@
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(28, 23);
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
-            // buscarToolStripMenuItem
-            // 
-            this.buscarToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.buscarToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buscarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("buscarToolStripMenuItem.Image")));
-            this.buscarToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 65, 0);
-            this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(28, 23);
-            this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
-            // 
             // toolStripTextBoxBusqueda
             // 
             this.toolStripTextBoxBusqueda.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripTextBoxBusqueda.BackColor = System.Drawing.SystemColors.Window;
             this.toolStripTextBoxBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxBusqueda.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.toolStripTextBoxBusqueda.Margin = new System.Windows.Forms.Padding(1, 0, 60, 0);
+            this.toolStripTextBoxBusqueda.MaxLength = 25;
             this.toolStripTextBoxBusqueda.Name = "toolStripTextBoxBusqueda";
             this.toolStripTextBoxBusqueda.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.toolStripTextBoxBusqueda.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBoxBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxBusqueda_KeyDown);
+            this.toolStripTextBoxBusqueda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxBusqueda_KeyUp);
             // 
             // flowLayoutPanelColecciones
             // 
@@ -199,6 +189,7 @@
             this.linkLabelColecciones.TabStop = true;
             this.linkLabelColecciones.Text = "Ver todas las Colecciones";
             this.linkLabelColecciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLabelColecciones.Visible = false;
             this.linkLabelColecciones.Click += new System.EventHandler(this.linkLabelColecciones_Click);
             // 
             // labelMisColecciones
@@ -241,6 +232,7 @@
             this.linkLabelMisColecciones.TabStop = true;
             this.linkLabelMisColecciones.Text = "Volver a Mis Colecciones";
             this.linkLabelMisColecciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLabelMisColecciones.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelMisColecciones_LinkClicked);
             // 
             // flowLayoutPanelElementos
             // 
@@ -251,6 +243,7 @@
             this.flowLayoutPanelElementos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanelElementos.BackgroundImage")));
             this.flowLayoutPanelElementos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.flowLayoutPanelElementos.Controls.Add(this.linkLabelMisColecciones);
+            this.flowLayoutPanelElementos.Controls.Add(this.linkLabelElementos);
             this.flowLayoutPanelElementos.Controls.Add(this.labelTituloColeccion);
             this.flowLayoutPanelElementos.Controls.Add(this.buttonAnadirElemento);
             this.flowLayoutPanelElementos.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -260,6 +253,20 @@
             this.flowLayoutPanelElementos.TabIndex = 4;
             this.flowLayoutPanelElementos.Visible = false;
             // 
+            // linkLabelElementos
+            // 
+            this.linkLabelElementos.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabelElementos.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelElementos.Location = new System.Drawing.Point(191, 0);
+            this.linkLabelElementos.Name = "linkLabelElementos";
+            this.linkLabelElementos.Size = new System.Drawing.Size(182, 62);
+            this.linkLabelElementos.TabIndex = 8;
+            this.linkLabelElementos.TabStop = true;
+            this.linkLabelElementos.Text = "Ver todos los elementos";
+            this.linkLabelElementos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLabelElementos.Visible = false;
+            this.linkLabelElementos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelElementos_LinkClicked);
+            // 
             // labelTituloColeccion
             // 
             this.labelTituloColeccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -267,7 +274,7 @@
             this.labelTituloColeccion.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanelElementos.SetFlowBreak(this.labelTituloColeccion, true);
             this.labelTituloColeccion.Font = new System.Drawing.Font("Franklin Gothic Medium", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTituloColeccion.Location = new System.Drawing.Point(191, 14);
+            this.labelTituloColeccion.Location = new System.Drawing.Point(379, 14);
             this.labelTituloColeccion.Name = "labelTituloColeccion";
             this.labelTituloColeccion.Size = new System.Drawing.Size(76, 34);
             this.labelTituloColeccion.TabIndex = 7;
@@ -487,7 +494,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxBusqueda;
         private System.Windows.Forms.ToolStripMenuItem perfilToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelColecciones;
         private System.Windows.Forms.LinkLabel linkLabelMisColecciones;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelElementos;
@@ -509,6 +515,7 @@
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private ctlCuteButton.cuteButton cuteButton1;
         private System.Windows.Forms.LinkLabel linkLabelColecciones;
+        private System.Windows.Forms.LinkLabel linkLabelElementos;
     }
 }
 

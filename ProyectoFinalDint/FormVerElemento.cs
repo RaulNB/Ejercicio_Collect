@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -7,6 +8,8 @@ namespace ProyectoFinalDint
 {
     public partial class FormVerElemento : Form
     {
+        private MySqlConnection connection;
+
         /// <summary>
         /// Imagen del elemento en bytes
         /// </summary>
@@ -18,10 +21,12 @@ namespace ProyectoFinalDint
         public string Descripcion { get; set; }
 
         /// <summary>
-        /// Inicializa los componentes
+        /// Inicializa los componentes y recoge la conexión
         /// </summary>
-        public FormVerElemento()
+        public FormVerElemento(MySqlConnection connection)
         {
+            this.connection = connection;
+
             InitializeComponent();
         }
 
@@ -37,6 +42,37 @@ namespace ProyectoFinalDint
                 MemoryStream ms = new MemoryStream(ImgBytes);
                 pictureBoxCaratula.Image = Image.FromStream(ms);
             }
+        }
+
+        /// <summary>
+        /// Permite modificar el elemento mostrado
+        /// </summary>
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            FormEditarElemento form = new FormEditarElemento(connection);
+            form.Nombre = Text;
+            form.Descripcion = richTextBoxDescripcion.Text;
+            form.ImgBytes = ImgBytes;
+
+            form.ShowDialog();
+
+            if(form.DialogResult == DialogResult.OK)
+            {
+                richTextBoxDescripcion.Text = form.Descripcion;
+                if (form.ImgBytes != null)
+                {
+                    MemoryStream ms = new MemoryStream(form.ImgBytes);
+                    pictureBoxCaratula.Image = Image.FromStream(ms);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Permite borrar el elemento mostrado
+        /// </summary>
+        private void buttonBorrar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.No;
         }
     }
 }

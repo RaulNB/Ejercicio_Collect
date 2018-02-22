@@ -34,6 +34,8 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.pictureBoxCaratula = new System.Windows.Forms.PictureBox();
             this.richTextBoxDescripcion = new System.Windows.Forms.RichTextBox();
+            this.buttonModificar = new System.Windows.Forms.Button();
+            this.buttonBorrar = new System.Windows.Forms.Button();
             this.tableLayoutPanelElemento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCaratula)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +112,26 @@
             this.richTextBoxDescripcion.TabIndex = 2;
             this.richTextBoxDescripcion.Text = "";
             // 
+            // buttonModificar
+            // 
+            this.buttonModificar.Location = new System.Drawing.Point(303, 412);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(75, 23);
+            this.buttonModificar.TabIndex = 2;
+            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
+            // 
+            // buttonBorrar
+            // 
+            this.buttonBorrar.Location = new System.Drawing.Point(222, 411);
+            this.buttonBorrar.Name = "buttonBorrar";
+            this.buttonBorrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBorrar.TabIndex = 3;
+            this.buttonBorrar.Text = "Borrar";
+            this.buttonBorrar.UseVisualStyleBackColor = true;
+            this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
+            // 
             // FormVerElemento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,12 +139,14 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(390, 397);
+            this.ClientSize = new System.Drawing.Size(390, 447);
+            this.Controls.Add(this.buttonBorrar);
+            this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.tableLayoutPanelElemento);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(406, 435);
-            this.MinimumSize = new System.Drawing.Size(406, 435);
+            this.MaximumSize = new System.Drawing.Size(406, 485);
+            this.MinimumSize = new System.Drawing.Size(406, 485);
             this.Name = "FormVerElemento";
             this.Text = "FormVerElemento";
             this.Load += new System.EventHandler(this.FormVerElemento_Load);
@@ -139,5 +163,7 @@
         private System.Windows.Forms.Label labelDescripcion;
         private System.Windows.Forms.RichTextBox richTextBoxDescripcion;
         private System.Windows.Forms.PictureBox pictureBoxCaratula;
+        private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.Button buttonBorrar;
     }
 }
