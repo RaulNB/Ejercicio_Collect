@@ -4,7 +4,6 @@ using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Drawing;
 using System.IO;
-using System.Drawing.Imaging;
 
 namespace ProyectoFinalDint
 {
@@ -434,7 +433,7 @@ namespace ProyectoFinalDint
 
             while (reader.Read())
             {
-                if (reader["imagen"] != null)
+                if (reader["imagen"] != DBNull.Value)
                 {
                     ImgBytes = (byte[])reader["imagen"];
                 }
@@ -495,11 +494,11 @@ namespace ProyectoFinalDint
 
             form.Text = reader["nombre"].ToString();
             form.Descripcion = reader["descripcion"].ToString();
-            try
+            if(reader["nombre"] != DBNull.Value)
             {
                 form.ImgBytes = (byte[])reader["imagen"];
             }
-            catch (InvalidCastException)
+            else
             {
                 form.ImgBytes = null;
             }
@@ -603,7 +602,7 @@ namespace ProyectoFinalDint
             form.Nombre = buttonClicked.Name;
             form.Descripcion = reader["descripcion"].ToString();
 
-            if(reader["imagen"] != null)
+            if(reader["imagen"] != DBNull.Value)
             {
                 form.ImgBytes = (byte[])reader["imagen"];
             }
@@ -664,8 +663,9 @@ namespace ProyectoFinalDint
                     connection.Open();
 
                     reader = command.ExecuteReader();
+                    reader.Read();
 
-                    if (reader["imagen"] != null)
+                    if (reader["imagen"] != DBNull.Value)
                     {
                         ImgBytes = (byte[])reader["imagen"];
                     }
