@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Linq;
+using System.IO;
 
 namespace ProyectoFinalDint
 {
@@ -497,7 +498,10 @@ namespace ProyectoFinalDint
             FormRegistro form = new FormRegistro(connection);
             form.ShowDialog();
 
-            iniciarSesion(form.Nombre, form.Contrasena);
+            if (form.DialogResult == DialogResult.OK)
+            {
+                iniciarSesion(form.Nombre, form.Contrasena);
+            }
         }
 
         /// <summary>
