@@ -40,6 +40,7 @@
             // 
             // tableLayoutPanelElemento
             // 
+            this.tableLayoutPanelElemento.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanelElemento.ColumnCount = 1;
             this.tableLayoutPanelElemento.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelElemento.Controls.Add(this.labelDescripcion, 0, 2);
@@ -61,7 +62,8 @@
             this.labelDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelDescripcion.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescripcion.BackColor = System.Drawing.Color.Transparent;
+            this.labelDescripcion.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescripcion.Location = new System.Drawing.Point(3, 173);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(360, 26);
@@ -74,7 +76,8 @@
             this.labelNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelNombre.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre.BackColor = System.Drawing.Color.Transparent;
+            this.labelNombre.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre.Location = new System.Drawing.Point(3, 0);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(360, 35);
@@ -84,6 +87,7 @@
             // 
             // pictureBoxCaratula
             // 
+            this.pictureBoxCaratula.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxCaratula.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxCaratula.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCaratula.Image")));
             this.pictureBoxCaratula.Location = new System.Drawing.Point(3, 38);
@@ -96,7 +100,7 @@
             // richTextBoxDescripcion
             // 
             this.richTextBoxDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.richTextBoxDescripcion.BackColor = System.Drawing.SystemColors.Control;
+            this.richTextBoxDescripcion.BackColor = System.Drawing.Color.White;
             this.richTextBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxDescripcion.Enabled = false;
             this.richTextBoxDescripcion.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,8 +114,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(390, 397);
             this.Controls.Add(this.tableLayoutPanelElemento);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(406, 435);
             this.MinimumSize = new System.Drawing.Size(406, 435);

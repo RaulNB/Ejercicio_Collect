@@ -226,8 +226,8 @@ namespace ProyectoFinalDint
                 if (flowLayoutPanelColecciones.Visible == false && flowLayoutPanelElementos.Visible == true)
                 {
                     linkLabelMisColecciones.Text = "Ver todos los elementos";
-                    linkLabelMisColecciones.LinkClicked -= linkLabelMisColecciones_LinkClicked;
                     linkLabelMisColecciones.LinkClicked += linkLabelMisColecciones_TodosElementos;
+                    linkLabelMisColecciones.LinkClicked -= linkLabelMisColecciones_LinkClicked;
 
                     command = new MySqlCommand("Select nombre from elementos where nombre LIKE @nombre and nombre_user = @nombre_user and nombre_col = @nombre_col order by nombre", connection);
                     command.Parameters.AddWithValue("@nombre", "%" + textoBusqueda + "%");
