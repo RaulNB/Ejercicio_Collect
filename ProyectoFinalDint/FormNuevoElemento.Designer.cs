@@ -46,7 +46,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(135, 215);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 7;
+            this.buttonCancelar.TabIndex = 5;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
@@ -55,7 +55,7 @@
             this.buttonAceptar.Location = new System.Drawing.Point(216, 215);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 6;
+            this.buttonAceptar.TabIndex = 4;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
@@ -66,7 +66,7 @@
             this.textBoxNombre.MaxLength = 25;
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(210, 20);
-            this.textBoxNombre.TabIndex = 5;
+            this.textBoxNombre.TabIndex = 1;
             // 
             // labelNombre
             // 
@@ -83,7 +83,7 @@
             this.richTextBoxDescripcion.MaxLength = 500;
             this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             this.richTextBoxDescripcion.Size = new System.Drawing.Size(210, 82);
-            this.richTextBoxDescripcion.TabIndex = 8;
+            this.richTextBoxDescripcion.TabIndex = 2;
             this.richTextBoxDescripcion.Text = "";
             // 
             // labelDescripcion
@@ -100,7 +100,7 @@
             this.buttonImg.Location = new System.Drawing.Point(230, 148);
             this.buttonImg.Name = "buttonImg";
             this.buttonImg.Size = new System.Drawing.Size(61, 23);
-            this.buttonImg.TabIndex = 19;
+            this.buttonImg.TabIndex = 3;
             this.buttonImg.Text = "Buscar...";
             this.buttonImg.UseVisualStyleBackColor = true;
             this.buttonImg.Click += new System.EventHandler(this.buttonImg_Click);
@@ -111,7 +111,7 @@
             this.textBoxImg.Location = new System.Drawing.Point(81, 150);
             this.textBoxImg.Name = "textBoxImg";
             this.textBoxImg.Size = new System.Drawing.Size(143, 20);
-            this.textBoxImg.TabIndex = 18;
+            this.textBoxImg.TabIndex = 0;
             this.textBoxImg.TabStop = false;
             // 
             // labelImg

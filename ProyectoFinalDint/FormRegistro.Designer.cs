@@ -65,7 +65,7 @@
             this.textBoxEmail.MaxLength = 40;
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(222, 20);
-            this.textBoxEmail.TabIndex = 3;
+            this.textBoxEmail.TabIndex = 2;
             this.textBoxEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // labelEmail
@@ -83,7 +83,7 @@
             this.textBoxContrasena.MaxLength = 20;
             this.textBoxContrasena.Name = "textBoxContrasena";
             this.textBoxContrasena.Size = new System.Drawing.Size(222, 20);
-            this.textBoxContrasena.TabIndex = 5;
+            this.textBoxContrasena.TabIndex = 3;
             this.textBoxContrasena.UseSystemPasswordChar = true;
             this.textBoxContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
@@ -102,7 +102,7 @@
             this.textBoxRepetirContrasena.MaxLength = 20;
             this.textBoxRepetirContrasena.Name = "textBoxRepetirContrasena";
             this.textBoxRepetirContrasena.Size = new System.Drawing.Size(222, 20);
-            this.textBoxRepetirContrasena.TabIndex = 7;
+            this.textBoxRepetirContrasena.TabIndex = 4;
             this.textBoxRepetirContrasena.UseSystemPasswordChar = true;
             this.textBoxRepetirContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
@@ -120,7 +120,7 @@
             this.buttonRegistrar.Location = new System.Drawing.Point(162, 227);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(75, 23);
-            this.buttonRegistrar.TabIndex = 8;
+            this.buttonRegistrar.TabIndex = 5;
             this.buttonRegistrar.Text = "Registrar";
             this.buttonRegistrar.UseVisualStyleBackColor = true;
             this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
@@ -131,7 +131,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(81, 227);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 9;
+            this.buttonCancelar.TabIndex = 6;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 

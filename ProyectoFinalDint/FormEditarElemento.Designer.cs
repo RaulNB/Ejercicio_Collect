@@ -53,7 +53,7 @@
             this.richTextBoxDescripcion.MaxLength = 500;
             this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             this.richTextBoxDescripcion.Size = new System.Drawing.Size(210, 82);
-            this.richTextBoxDescripcion.TabIndex = 9;
+            this.richTextBoxDescripcion.TabIndex = 1;
             this.richTextBoxDescripcion.Text = "";
             // 
             // buttonImagen
@@ -61,7 +61,7 @@
             this.buttonImagen.Location = new System.Drawing.Point(146, 156);
             this.buttonImagen.Name = "buttonImagen";
             this.buttonImagen.Size = new System.Drawing.Size(75, 50);
-            this.buttonImagen.TabIndex = 11;
+            this.buttonImagen.TabIndex = 2;
             this.buttonImagen.Text = "Cambiar Imagen";
             this.buttonImagen.UseVisualStyleBackColor = true;
             this.buttonImagen.Click += new System.EventHandler(this.buttonImagen_Click);
@@ -71,7 +71,7 @@
             this.buttonAceptar.Location = new System.Drawing.Point(146, 227);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 12;
+            this.buttonAceptar.TabIndex = 3;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
@@ -82,7 +82,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(65, 227);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 13;
+            this.buttonCancelar.TabIndex = 4;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
@@ -93,7 +93,7 @@
             this.panelImagen.Location = new System.Drawing.Point(17, 156);
             this.panelImagen.Name = "panelImagen";
             this.panelImagen.Size = new System.Drawing.Size(123, 50);
-            this.panelImagen.TabIndex = 14;
+            this.panelImagen.TabIndex = 0;
             // 
             // FormEditarElemento
             // 

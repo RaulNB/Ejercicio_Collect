@@ -117,7 +117,7 @@
             this.buttonModificar.Location = new System.Drawing.Point(303, 412);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(75, 23);
-            this.buttonModificar.TabIndex = 2;
+            this.buttonModificar.TabIndex = 1;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
             this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
@@ -127,7 +127,7 @@
             this.buttonBorrar.Location = new System.Drawing.Point(222, 411);
             this.buttonBorrar.Name = "buttonBorrar";
             this.buttonBorrar.Size = new System.Drawing.Size(75, 23);
-            this.buttonBorrar.TabIndex = 3;
+            this.buttonBorrar.TabIndex = 2;
             this.buttonBorrar.Text = "Borrar";
             this.buttonBorrar.UseVisualStyleBackColor = true;
             this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
