@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalDint
 {
+    /// <summary>
+    /// Ventana que muestra en detalle un elemento
+    /// </summary>
     public partial class FormVerElemento : Form
     {
         private MySqlConnection connection;

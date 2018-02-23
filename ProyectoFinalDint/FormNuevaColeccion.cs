@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalDint
 {
+    /// <summary>
+    /// Ventana que permite crear colecciones
+    /// </summary>
     public partial class FormNuevaColeccion : Form
     {
         private MySqlConnection connection;

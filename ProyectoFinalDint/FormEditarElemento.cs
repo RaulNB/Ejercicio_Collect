@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalDint
 {
+    /// <summary>
+    /// Ventana que permite editar un elemento
+    /// </summary>
     public partial class FormEditarElemento : Form
     {
         MySqlConnection connection;

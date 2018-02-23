@@ -7,6 +7,9 @@ using System.IO;
 
 namespace ProyectoFinalDint
 {
+    /// <summary>
+    /// Ventana principal
+    /// </summary>
     public partial class FormCollect : Form
     {
         /// <summary>
@@ -433,9 +436,13 @@ namespace ProyectoFinalDint
 
             while (reader.Read())
             {
-                if (reader["imagen"] != DBNull.Value)
+                try
                 {
                     ImgBytes = (byte[])reader["imagen"];
+                }
+                catch (InvalidCastException)
+                {
+                    ImgBytes = null;
                 }
                 anadirElemento(reader["nombre"].ToString(), ImgBytes);
             }
@@ -494,11 +501,11 @@ namespace ProyectoFinalDint
 
             form.Text = reader["nombre"].ToString();
             form.Descripcion = reader["descripcion"].ToString();
-            if(reader["nombre"] != DBNull.Value)
+            try
             {
                 form.ImgBytes = (byte[])reader["imagen"];
             }
-            else
+            catch(InvalidCastException)
             {
                 form.ImgBytes = null;
             }
@@ -582,7 +589,7 @@ namespace ProyectoFinalDint
         }
 
         /// <summary>
-        /// Permite editar los datos de un elemento**********MOSTRAR IMAGEN EN DISEÑO***********
+        /// Permite editar los datos de un elemento
         /// </summary>
         private void buttonEditar_Click(object sender, EventArgs e)
         {
@@ -663,15 +670,17 @@ namespace ProyectoFinalDint
                     connection.Open();
 
                     reader = command.ExecuteReader();
-                    reader.Read();
-
-                    if (reader["imagen"] != DBNull.Value)
-                    {
-                        ImgBytes = (byte[])reader["imagen"];
-                    }
 
                     while (reader.Read())
                     {
+                        try
+                        {
+                            ImgBytes = (byte[])reader["imagen"];
+                        }
+                        catch (InvalidCastException)
+                        {
+                            ImgBytes = null;
+                        }
                         anadirElemento(reader["nombre"].ToString(), ImgBytes);
                     }
 

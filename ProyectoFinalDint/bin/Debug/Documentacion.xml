@@ -4,6 +4,11 @@
         <name>ProyectoFinalDint</name>
     </assembly>
     <members>
+        <member name="T:ProyectoFinalDint.FormCollect">
+            <summary>
+            Ventana principal
+            </summary>
+        </member>
         <member name="P:ProyectoFinalDint.FormCollect.ColeccionActiva">
             <summary>
             Guarda la última colección seleccionada
@@ -152,7 +157,7 @@
         </member>
         <member name="M:ProyectoFinalDint.FormCollect.buttonEditar_Click(System.Object,System.EventArgs)">
             <summary>
-            Permite editar los datos de un elemento**********MOSTRAR IMAGEN EN DISEÑO***********
+            Permite editar los datos de un elemento
             </summary>
         </member>
         <member name="M:ProyectoFinalDint.FormCollect.linkLabelMisColecciones_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
@@ -180,6 +185,11 @@
             <summary>
             Método necesario para admitir el Diseñador. No se puede modificar
             el contenido de este método con el editor de código.
+            </summary>
+        </member>
+        <member name="T:ProyectoFinalDint.FormEditarElemento">
+            <summary>
+            Ventana que permite editar un elemento
             </summary>
         </member>
         <member name="P:ProyectoFinalDint.FormEditarElemento.Nombre">
@@ -235,6 +245,11 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:ProyectoFinalDint.FormNuevaColeccion">
+            <summary>
+            Ventana que permite crear colecciones
+            </summary>
+        </member>
         <member name="P:ProyectoFinalDint.FormNuevaColeccion.Nombre">
             <summary>
             Nombre de la colección
@@ -276,6 +291,11 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ProyectoFinalDint.FormNuevoElemento">
+            <summary>
+            Ventana que permite crear elementos
             </summary>
         </member>
         <member name="P:ProyectoFinalDint.FormNuevoElemento.Nombre">
@@ -336,6 +356,11 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:ProyectoFinalDint.FormRegistro">
+            <summary>
+            Ventana que permite registrarse
+            </summary>
+        </member>
         <member name="P:ProyectoFinalDint.FormRegistro.Nombre">
             <summary>
             Nombre del usuario
@@ -377,6 +402,11 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ProyectoFinalDint.FormVerElemento">
+            <summary>
+            Ventana que muestra en detalle un elemento
             </summary>
         </member>
         <member name="P:ProyectoFinalDint.FormVerElemento.ImgBytes">

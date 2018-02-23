@@ -4,6 +4,9 @@ using System;
 
 namespace ProyectoFinalDint
 {
+    /// <summary>
+    /// Ventana que permite registrarse
+    /// </summary>
     public partial class FormRegistro : Form
     {
         private MySqlConnection connection;

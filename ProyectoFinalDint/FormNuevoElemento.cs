@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace ProyectoFinalDint
 {
+    /// <summary>
+    /// Ventana que permite crear elementos
+    /// </summary>
     public partial class FormNuevoElemento : Form
     {
         private MySqlConnection connection;
